@@ -1,0 +1,8 @@
+.test {
+  color: $red;
+  display: flex;
+}
+
+.hello {
+  composes: test;
+}
