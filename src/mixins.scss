@@ -1,0 +1,18 @@
+@mixin mask($distance: 0) {
+  bottom: $distance;
+  left: $distance;
+  position: absolute;
+  right: $distance;
+  top: $distance;
+}
+
+@function rem($size) {
+  $rem: $size / 16;
+  @return #{$rem}rem;
+}
+
+@mixin nojs() {
+  :global(.no-js) & {
+    @content;
+  }
+}

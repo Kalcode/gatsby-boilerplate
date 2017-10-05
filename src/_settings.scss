@@ -1,0 +1,12 @@
+// Grid settings
+$global-flexbox: true;
+
+$global-width: 1200px;
+$grid-row-width: $global-width;
+
+$gutter: 20px;
+
+$grid-column-gutter: (
+  small: 40px,
+  medium: 40px,
+);

@@ -1,6 +1,11 @@
 .test {
   color: $red;
   display: flex;
+  max-width: $global-width;
+
+  @include breakpoint(medium) {
+    color: $blue;
+  }
 }
 
 .hello {
