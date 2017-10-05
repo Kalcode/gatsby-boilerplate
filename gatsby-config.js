@@ -1,10 +1,11 @@
 var cssnext = require('postcss-cssnext')
 var cssreporter = require('postcss-reporter')
+var config = require('./src/config')
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    siteUrl: `https://www.example.com`,
+    title: config.name,
+    siteUrl: config.url,
   },
   plugins: [
     `gatsby-plugin-offline`,
