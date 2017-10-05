@@ -21,8 +21,13 @@
     "gatsby-plugin-react-helmet": "^1.0.5",
     "gatsby-plugin-resolve-src": "^1.0.0",
     "gatsby-plugin-sitemap": "^1.2.5",
+    "lodash": "^4.17.4",
     "postcss-cssnext": "^3.0.2",
     "postcss-reporter": "^5.0.0",
+    "react-redux": "^5.0.6",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.7.2",
+    "reduxsauce": "^0.7.0",
     "rimraf": "^2.6.2",
     "stylelint": "^8.1.1",
     "stylelint-order": "^0.7.0"
