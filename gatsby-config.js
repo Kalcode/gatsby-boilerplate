@@ -7,6 +7,7 @@ module.exports = {
     siteUrl: `https://www.example.com`,
   },
   plugins: [
+    `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     'gatsby-plugin-resolve-src',
