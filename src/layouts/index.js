@@ -1,8 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
+import PropTypes from 'prop-types'
+import React from 'react'
 import ScrollMagicContext from 'components/ScrollMagicContext'
+import Nav from 'components/Nav'
+import Footer from 'components/Footer'
 import 'gsap'
 import 'scrollmagic'
 if (typeof window !== 'undefined') {
@@ -11,9 +12,8 @@ if (typeof window !== 'undefined') {
 
 import './base.scss'
 
-
-const TemplateWrapper = ({ children }) => (
-  <ScrollMagicContext>
+const TemplateWrapper = ({ children, location }) => (
+  <ScrollMagicContext location={location}>
     <div>
       <Helmet
         title='Gatsby Default Starter'
@@ -22,13 +22,16 @@ const TemplateWrapper = ({ children }) => (
           { name: 'keywords', content: 'sample, something' },
         ]}
       />
+      <Nav />
       {children()}
+      <Footer />
     </div>
   </ScrollMagicContext>
 )
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func,
+  location: PropTypes.object,
 }
 
 export default TemplateWrapper
