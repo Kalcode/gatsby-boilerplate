@@ -2,6 +2,9 @@ var PHONE = ['TODO', 'TODO', 'TODO']
 var EMAIL = 'TODO'
 
 var config = {
+  meta_title: 'Templator',
+  meta_description: '',
+
   url: 'https://TODO.com',
   name: 'TODO',
   legal_name: 'TODO',

@@ -7,6 +7,9 @@ develop:
 build:
 	@npm run build
 
+serve:
+	@http-server ./public
+
 deploy:
 	@aws s3 sync public $(bucket-dev) \
 		--acl=public-read \
@@ -33,4 +36,4 @@ live:
 		--delete \
 		--cache-control='max-age=525600'
 
-.PHONY: develop deploy build live
+.PHONY: develop deploy build live serve
