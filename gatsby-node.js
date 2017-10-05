@@ -9,6 +9,7 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
     resolve: {
       alias: {
         analytics: shim('analytics'),
+        assetInserter: shim('assetInserter'),
         TweenLite: 'gsap',
         scrollmagic: shim('scrollmagic'),
         ScrollMagic: shim('scrollmagic'),

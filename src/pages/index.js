@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import AnimTest from 'components/AnimTest'
+import Test from 'components/Test'
 
 const IndexPage = () => (
   <div className='test'>
@@ -9,6 +10,7 @@ const IndexPage = () => (
     <p>Now go build something great.</p>
     <Link to='/page-2/'>Go to page 2</Link>
     <AnimTest>TESTING 2.0</AnimTest>
+    <Test />
   </div>
 )
 

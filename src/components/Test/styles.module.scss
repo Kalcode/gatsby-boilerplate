@@ -6,6 +6,11 @@
   @include breakpoint(medium) {
     color: $blue;
   }
+
+  @include nojs() {
+    color: rebeccapurple;
+    background-color: red;
+  }
 }
 
 .hello {
