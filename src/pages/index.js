@@ -1,19 +1,21 @@
 import React from 'react'
+import Helmet from 'components/Helmet'
 import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
-import AnimTest from 'components/AnimTest'
-import Test from 'components/Test'
+import Link from 'components/Link'
+import content from './content'
 
 export default function Home(props) {
   return (
-    <div className='test'>
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
+    <main>
+      <Helmet
+        title={content.meta_title}
+        description={content.meta_description}
+      />
+      <h1>{content.title}</h1>
+      <p>{content.content[0]}</p>
+      <p>{content.content[1]}</p>
       <Link to='/page-2/'>Go to page 2</Link>
-      <AnimTest>TESTING 2.0</AnimTest>
-      <Test />
-    </div>
+    </main>
   )
 }
 
