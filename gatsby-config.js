@@ -11,8 +11,8 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     'gatsby-plugin-resolve-src',
     {
-      // resolve: `gatsby-plugin-postcss-sass`,
-      resolve: `gatsby-sass-loader-custom`,
+      // resolve: `gatsby-sass-loader-custom`,
+      resolve: `gatsby-plugin-postcss-sass`,
       options: {
         data: '@import "~app.scss";',
         postCssPlugins: [
@@ -23,7 +23,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-google-analytics-custom`,
       options: {
         trackingId: 'UA-TODO-XX',
       },
