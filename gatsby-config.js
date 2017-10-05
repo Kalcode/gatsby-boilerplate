@@ -22,5 +22,11 @@ module.exports = {
         precision: 5, // SASS default: 5
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-TODO-XX',
+      },
+    },
   ],
 }

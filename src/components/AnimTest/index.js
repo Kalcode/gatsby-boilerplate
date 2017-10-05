@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import scrollmagic from 'utils/scrollmagic'
 import { Scene } from 'scrollmagic'
+import analytics from 'analytics'
 
 @scrollmagic
 export default class AnimTest extends PureComponent {
@@ -10,6 +11,7 @@ export default class AnimTest extends PureComponent {
   }
 
   componentDidMount() {
+    analytics.event('contact_page', 'phone_clicked')
     this.animation = new TimelineMax({ paused: true })
     .fromTo(this.node, 5, { opacity: 0 }, { opacity: 1 })
     this.animation.play()
