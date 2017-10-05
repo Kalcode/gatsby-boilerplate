@@ -39,7 +39,11 @@
     "max-empty-lines": 2,
     "number-leading-zero": "always",
     "number-max-precision": 3,
-    "order/declaration-block-properties-alphabetical-order": true,
+    "order/order": [
+            "custom-properties",
+            "declarations"
+    ],
+    "order/properties-alphabetical-order": true,
     "property-case": "lower",
     "property-no-unknown": [true, { ignoreProperties: ["composes", /margin/, /padding/] }],
     "property-no-vendor-prefix": true,
