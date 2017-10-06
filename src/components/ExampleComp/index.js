@@ -1,10 +1,12 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import scrollmagic from 'utils/scrollmagic'
 import { Scene } from 'scrollmagic'
 
-@scrollmagic
-export default class AnimTest extends PureComponent {
+export default class ExampleComp extends PureComponent {
+  static contextTypes = {
+    scrollmagic: PropTypes.any,
+  }
+
   static propTypes = {
     children: PropTypes.any,
   }
@@ -20,8 +22,15 @@ export default class AnimTest extends PureComponent {
     this.scene = new Scene({ triggerElement: this.title, triggerHook: 0.4 })
     this.scene.indicatorName = 'Test'
     this.scene.on('enter', () => this.scrollAnim.play())
+
+    if (process.env.NODE_ENV === 'development') {
+      this.scene.addIndicators({ name: this.scene.indicatorName })
+    }
+
+    this.scene.addTo(this.context.scrollmagic)
   }
 
+  // Binding
   refNode = (c) => {
     this.node = c
   }
