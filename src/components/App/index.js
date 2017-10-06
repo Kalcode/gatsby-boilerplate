@@ -18,7 +18,7 @@ const App = ({ children, location }) => (
 )
 
 App.propTypes = {
-  children: PropTypes.func,
+  children: PropTypes.any,
   location: PropTypes.object,
 }
 

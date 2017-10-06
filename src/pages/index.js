@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'components/Helmet'
 import PropTypes from 'prop-types'
 import Link from 'components/Link'
-import content from './content'
+import content from './content.json'
 
 export default function Home(props) {
   return (

@@ -16,7 +16,7 @@ const TemplateWrapper = ({ children, location }) => (
 )
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func,
+  children: PropTypes.any,
   location: PropTypes.object,
 }
 
