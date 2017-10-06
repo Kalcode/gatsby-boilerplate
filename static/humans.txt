@@ -1,0 +1,13 @@
+/* SITE */
+  TODO Site Name / Company
+  TODO SITE URL.com
+  Last update: YYYY/MM/DD
+  Doctype: HTML5
+  Stack: React, Redux, SCSS, Webpack, Babel
+
+/* TEAM */
+  Agency: Creator Company
+          www.creator-url.com
+
+  TODO-TITLE: First Last Name
+  Contact: TODO@email.com
