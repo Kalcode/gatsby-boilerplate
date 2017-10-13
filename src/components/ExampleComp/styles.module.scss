@@ -1,0 +1,15 @@
+$nav-menu-break: 360px;
+
+// How to export variables from scss to Javascript
+/* stylelint-disable property-no-unknown  */
+:export {
+  break-large: map-get($breakpoints, large);
+  break-medium: map-get($breakpoints, medium);
+  break-xlarge: map-get($breakpoints, xlarge);
+  nav-menu-break: $nav-menu-break;
+}
+
+/* stylelint-enable */
+.text {
+  background-color: $red;
+}

@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Scene } from 'scrollmagic'
+import styles from './styles.module.scss'
 
 export default class ExampleComp extends PureComponent {
   static contextTypes = {
@@ -12,6 +13,12 @@ export default class ExampleComp extends PureComponent {
   }
 
   componentDidMount() {
+    // How to retrieve variables from scss in Javascript
+    console.log(styles['break-medium'])
+    console.log(styles['break-large'])
+    console.log(styles['break-xlarge'])
+    console.log(styles['nav-menu-break'])
+
     this.animation = new TimelineMax({ paused: true })
     .fromTo(this.node, 5, { opacity: 0 }, { opacity: 1 })
     this.animation.play()
@@ -42,7 +49,7 @@ export default class ExampleComp extends PureComponent {
   render() {
     const { children } = this.props
     return (
-      <div ref={this.refNode}>
+      <div ref={this.refNode} className={styles.text}>
         {children}
         <div style={{ marginTop: 300, height: 3000 }} ref={this.refTitle}>
           <h1>HELLLO SCROLLMAGIC!</h1>
