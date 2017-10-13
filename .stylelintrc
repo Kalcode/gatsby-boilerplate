@@ -12,6 +12,9 @@
     "color-hex-length": "short",
     "color-named": "never",
     "color-no-invalid-hex": true,
+    "comment-empty-line-before": [ "always", {
+      "ignore": ["stylelint-commands", "after-comment"]
+    } ],
     "declaration-bang-space-after": "never",
     "declaration-bang-space-before": "always",
     "declaration-block-no-duplicate-properties": true,
@@ -39,15 +42,15 @@
     "max-empty-lines": 2,
     "number-leading-zero": "always",
     "number-max-precision": 3,
-    "order/order": [
-            "custom-properties",
-            "declarations"
-    ],
     "order/properties-alphabetical-order": true,
+    "order/order": [
+    "custom-properties",
+    "declarations"
+    ],
     "property-case": "lower",
     "property-no-unknown": [true, { ignoreProperties: ["composes", /margin/, /padding/] }],
     "property-no-vendor-prefix": true,
-    "rule-empty-line-before": ["always", { except: ["first-nested"] }],
+    "rule-empty-line-before": ["always", { except: ["first-nested", "after-single-line-comment"] }],
     "shorthand-property-no-redundant-values": true,
     "string-quotes": "single",
     "unit-case": "lower",
