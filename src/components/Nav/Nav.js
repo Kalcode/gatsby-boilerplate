@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'components/Link'
 
 export default function Nav() {
   return (
@@ -6,9 +7,9 @@ export default function Nav() {
       <h2>Templator</h2>
       <nav>
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li><Link to='/'>Home</Link></li>
+          <li><Link to='/about'>About</Link></li>
+          <li><Link to='/page-2'>Contact</Link></li>
         </ul>
       </nav>
     </header>
