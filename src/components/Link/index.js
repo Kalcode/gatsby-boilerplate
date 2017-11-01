@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Link from 'gatsby-link'
+import GatsbyLink from 'gatsby-link'
 
 import PropTypes from 'prop-types'
 
@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
  * This provides a smoother experience for the user.
  *
  */
-export default class PrefetchLink extends Component {
+export default class Link extends Component {
   static propTypes = {
     children: PropTypes.node,
     to: PropTypes.string,
@@ -19,7 +19,7 @@ export default class PrefetchLink extends Component {
   render() {
     const { children, ...rest } = this.props
     return (
-      <Link {...rest}>{children}</Link>
+      <GatsbyLink {...rest}>{children}</GatsbyLink>
     )
   }
 }
