@@ -1,8 +1,7 @@
 import React, { createElement, Component } from 'react'
 import PropTypes from 'prop-types'
 import { Transition } from 'react-transition-group'
-import Transitions, { timeout } from './Transitions'
-import Swipe from './Swipe'
+import Swipe, { timeout } from './Swipe'
 
 const historyExitingEventType = `history::exiting`
 
@@ -24,7 +23,6 @@ export default class PageTransition extends Component {
 
   constructor(props) {
     super(props)
-    this.transitions = new Transitions(this)
     this.state = { exiting: false, nextPageResources: {} }
     this.listenerHandler = this.listenerHandler.bind(this)
   }
@@ -59,9 +57,9 @@ export default class PageTransition extends Component {
         enter: 0,
         exit: timeout,
       },
-      onEntering: () => Transitions.onEntering(this.node),
-      onEntered: () => Transitions.onEntered(this.node),
-      onExiting: () => Transitions.onExiting(this.node),
+      onEntering: () => this.node.onEntering(),
+      onEntered: () => this.node.onEntered(),
+      onExiting: () => this.node.onExiting(),
       appear: true,
       in: !this.state.exiting,
       key: this.props.location.key,
@@ -72,7 +70,7 @@ export default class PageTransition extends Component {
           (status) => {
             return (
               <div>
-                <Swipe refAnim={this.refNode} />
+                <Swipe ref={this.refNode} timeout={timeout} />
                 {
                   createElement(this.props.pageResources.component, {
                     ...this.props,
