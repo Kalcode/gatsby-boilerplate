@@ -7,13 +7,15 @@ import Nav from 'components/Nav'
 
 import './base.scss'
 
-const TemplateWrapper = ({ children, location }) => (
-  <App location={location}>
-    <Nav />
-    {children()}
-    <Footer />
-  </App>
-)
+const TemplateWrapper = ({ children, location }) => {
+  return (
+    <App location={location}>
+      <Nav />
+      {children()}
+      <Footer />
+    </App>
+  )
+}
 
 TemplateWrapper.propTypes = {
   children: PropTypes.any,

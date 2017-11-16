@@ -1,8 +1,14 @@
-import React from 'react'
+/* eslint-disable react/prop-types */
+import React, { createElement } from 'react'
 import { Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
-
+import PageTransition, { getUserConfirmation } from 'components/PageTransition'
 import createStore from './src/store'
+import createHistory from 'history/createBrowserHistory'
+
+const history = createHistory({ getUserConfirmation })
+// block must return a string to conform
+history.block((location, action) => location.pathname)
 
 exports.replaceRouterComponent = ({ history }) => {
   let initialState
@@ -18,4 +24,14 @@ exports.replaceRouterComponent = ({ history }) => {
   )
 
   return ConnectedRouterWrapper
+}
+
+exports.replaceHistory = () => history
+
+// eslint-disable-next-line react/display-name
+exports.replaceComponentRenderer = ({ props, loader }) => {
+  if (props.layout) {
+    return undefined
+  }
+  return createElement(PageTransition, { ...props, loader })
 }
