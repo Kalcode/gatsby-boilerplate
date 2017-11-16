@@ -12,11 +12,13 @@ export default class About extends PureComponent {
   }
 
   componentWillMount() {
-    const api = 'http://45.76.57.232/wp-json/wp/v2/pages?slug=about'
-    fetch(api)
-    .then(response => response.json())
-    .then(json => this.setState({ data: json }))
-    .catch(error => this.setState({ error }))
+    if (typeof fetch !== 'undefined') {
+      const api = 'http://45.76.57.232/wp-json/wp/v2/pages?slug=about'
+      fetch(api)
+      .then(response => response.json())
+      .then(json => this.setState({ data: json }))
+      .catch(error => this.setState({ error }))
+    }
   }
 
   render() {
