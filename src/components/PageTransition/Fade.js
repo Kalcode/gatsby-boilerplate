@@ -5,7 +5,7 @@ import styles from './styles.module.scss'
 // required
 export const timeout = 250
 
-export default class Swipe extends PureComponent {
+export default class Fade extends PureComponent {
   static propTypes = {
     timeout: PropTypes.number,
   }
