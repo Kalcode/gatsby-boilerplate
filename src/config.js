@@ -5,23 +5,15 @@ var config = {
   meta_title: 'Templator',
   meta_description: '',
 
-  url: 'https://TODO.com',
+  // Required info for schema
+  email: EMAIL,
+  logo: 'TODO',
   name: 'TODO',
   legal_name: 'TODO',
-  email: EMAIL,
-  mailto: `mailto:` + EMAIL,
-  logo: 'TODO',
-
-  googlePlus: 'https://plus.google.com',
-  medium: 'https://medium.com',
-  facebook: 'https://facebook.com',
-  twitter: 'https://twitter.com',
-  twitter_id: '',
-  googleAnalytics: 'UA-TODO-XX',
-
+  url: 'https://TODO.com',
   phone: PHONE.join('-'),
-  tel: 'tel:' + PHONE.join(''),
 
+  // Required address object for schema
   address: {
     street: 'TODO',
     city: 'TODO',
@@ -32,6 +24,21 @@ var config = {
     area: '',
   },
 
+  // Useful adds
+  mailto: `mailto:` + EMAIL,
+  tel: 'tel:' + PHONE.join(''),
+
+  // Social Media
+  googlePlus: 'https://plus.google.com',
+  medium: 'https://medium.com',
+  facebook: 'https://facebook.com',
+  twitter: 'https://twitter.com',
+  twitter_id: '',
+
+  // Analytics codes
+  googleAnalytics: 'UA-TODO-XX',
+
+  // Font codes
   typekit: '',
 }
 
