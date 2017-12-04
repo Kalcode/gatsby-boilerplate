@@ -12,24 +12,27 @@ export default class Swipe extends PureComponent {
 
   // Required
   onEntering = () => {
-    TweenMax.set(this.node, { x: '100%' })
+    TweenMax.set(this.node, { opacity: 1, display: 'block' })
   }
 
   // Required
   onEntered = () => {
-    TweenMax.to(this.node, this.props.timeout / 1000, { x: '200%' })
+    TweenMax.to(this.node, this.props.timeout / 1000, { opacity: 0, display: 'none' })
   }
 
   // Required
   onExiting = () => {
-    TweenMax.fromTo(this.node, this.props.timeout / 1000, { x: '0%' }, { x: '100%' })
+    TweenMax.fromTo(this.node, this.props.timeout / 1000,
+      { opacity: 0, display: 'none' },
+      { opacity: 1, display: 'block' }
+    )
   }
 
   refNode = (c) => { this.node = c }
 
   render() {
     return (
-      <div ref={this.refNode} className={styles.swipe} />
+      <div ref={this.refNode} className={styles.fade} />
     )
   }
 }
