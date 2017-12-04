@@ -3,6 +3,6 @@ import custom from './modernizr-custom'
 
 export default function modernizr() {
   return ([
-    <script dangerouslySetInnerHTML={{__html: custom}} />,
+    <script key='modernizr-script' dangerouslySetInnerHTML={{__html: custom}} />,
   ])
 }

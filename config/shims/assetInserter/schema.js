@@ -4,6 +4,7 @@ import config from 'config'
 export default function Schema(props) {
   return (
     <script
+      key='schema-script'
       type='application/ld+json'
       dangerouslySetInnerHTML={{__html: JSON.stringify({
         '@context': 'http://schema.org',
