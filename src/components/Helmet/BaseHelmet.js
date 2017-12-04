@@ -50,9 +50,12 @@ export default class BaseHelmet extends PureComponent {
 
           { rel: 'shortcut icon', href: '/favicons/favicon.ico', type: 'image/x-icon' },
           { rel: 'icon', href: '/favicons/favicon.ico', type: 'image/x-icon' },
+
           { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png' },
           { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicons/favicon-32x32.png' },
+
           { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/favicons/android-chrome-192x192.png' },
+
           { rel: 'icon', type: 'image/png', sizes: '228x228', href: '/favicons/coast-228x228.png' },
 
           { rel: 'apple-touch-icon', sizes: '57x57', href: '/favicons/apple-touch-icon-57x57.png' },

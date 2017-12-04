@@ -39,7 +39,6 @@ favicons(source, options, (error, response) => {
   if (error) return console.error(error)
 
   const { images } = response
-  console.log(response.html);
   const promises = []
   promises.push(images.map(write))
 
