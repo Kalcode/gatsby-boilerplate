@@ -8,7 +8,8 @@ module.exports = {
     siteUrl: config.url,
   },
   plugins: [
-    `gatsby-plugin-offline`,
+    // Turn on offline before deploy
+    // `gatsby-plugin-offline`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     'gatsby-plugin-resolve-src',
