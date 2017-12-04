@@ -25,8 +25,10 @@ $border-color: lighten($black, 60);
 $box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 
 // default fonts
-$body: proxima-nova, sans-serif;
-$heading: proxima-nova, sans-serif;
+$body-font: proxima-nova, sans-serif;
+$body-weight: 400;
+$heading-font: proxima-nova, sans-serif;
+$heading-weight: 700;
 
 // nav
 $nav-height: 65px;
