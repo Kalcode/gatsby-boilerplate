@@ -5,6 +5,7 @@ import App from 'components/App'
 import Footer from 'components/Footer'
 import Nav from 'components/Nav'
 
+import './normalize.scss'
 import './base.scss'
 
 const TemplateWrapper = ({ children, location }) => {
