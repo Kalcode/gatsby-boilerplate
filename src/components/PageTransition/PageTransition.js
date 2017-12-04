@@ -1,7 +1,7 @@
 import React, { createElement, Component } from 'react'
 import PropTypes from 'prop-types'
 import { Transition } from 'react-transition-group'
-import Swipe, { timeout } from './Swipe'
+import CurrentTransition, { timeout } from './Fade'
 
 const historyExitingEventType = `history::exiting`
 
@@ -70,7 +70,7 @@ export default class PageTransition extends Component {
           (status) => {
             return (
               <div>
-                <Swipe ref={this.refNode} timeout={timeout} />
+                <CurrentTransition ref={this.refNode} timeout={timeout} />
                 {
                   createElement(this.props.pageResources.component, {
                     ...this.props,
