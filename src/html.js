@@ -10,6 +10,8 @@ if (process.env.NODE_ENV === `production`) {
   }
 }
 
+// Ignore react prop-types here
+/* eslint react/prop-types: 0 */
 module.exports = class HTML extends React.Component {
   render() {
     let css
