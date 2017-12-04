@@ -13,7 +13,6 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     'gatsby-plugin-resolve-src',
     {
-      // resolve: `gatsby-sass-loader-custom`,
       resolve: `gatsby-plugin-postcss-sass`,
       options: {
         data: '@import "~app.scss";',
