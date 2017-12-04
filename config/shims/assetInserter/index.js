@@ -1,6 +1,6 @@
-import React from 'react'
 import modernizr from './modernizr'
 import typekit from './typekit'
+import schema from './schema'
 
 export default class assetInserter {
   static head() {
@@ -12,6 +12,7 @@ export default class assetInserter {
   static body() {
     return [
       typekit(),
+      schema(),
     ]
   }
 }
