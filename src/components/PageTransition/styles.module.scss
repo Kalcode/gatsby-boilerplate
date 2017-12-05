@@ -1,20 +1,22 @@
-.fade {
+.cover {
   background-color: $background;
-  bottom: 0;
-  display: none;
-  left: 0;
+  display: block;
   position: fixed;
-  right: 0;
-  top: 0;
   z-index: 100;
 }
 
-.swipe {
-  background-color: $background;
+.fade {
   bottom: 0;
+  composes: cover;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.swipe {
+  bottom: 0;
+  composes: cover;
   left: -100%;
-  position: fixed;
   right: 100%;
   top: 0;
-  z-index: 100;
 }
