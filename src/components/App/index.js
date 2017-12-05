@@ -1,7 +1,8 @@
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import React from 'react'
 import { BaseHelmet } from 'components/Helmet'
 import ScrollMagicContext from 'components/ScrollMagicContext'
+import Loader from 'components/Loader'
 
 import 'gsap'
 import 'whatwg-fetch'
@@ -11,18 +12,22 @@ if (typeof window !== 'undefined') {
   require('../../../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators')
 }
 
-const App = ({ children, location }) => (
-  <ScrollMagicContext location={location}>
-    <div>
-      <BaseHelmet location={location} />
-      {children}
-    </div>
-  </ScrollMagicContext>
-)
+export default class App extends Component {
+  static propTypes = {
+    children: PropTypes.any,
+    location: PropTypes.object,
+  }
 
-App.propTypes = {
-  children: PropTypes.any,
-  location: PropTypes.object,
+  render() {
+    const { children, location } = this.props
+    return (
+      <ScrollMagicContext location={location}>
+        <div>
+          <Loader />
+          <BaseHelmet location={location} />
+          {children}
+        </div>
+      </ScrollMagicContext>
+    )
+  }
 }
-
-export default App
