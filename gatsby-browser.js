@@ -6,10 +6,6 @@ import PageTransition, { getUserConfirmation } from 'components/PageTransition'
 import createStore from './src/store'
 import createHistory from 'history/createBrowserHistory'
 
-const history = createHistory({ getUserConfirmation })
-// block must return a string to conform
-history.block((location, action) => location.pathname)
-
 exports.replaceRouterComponent = ({ history }) => {
   let initialState
   if (typeof window !== 'undefined') {
@@ -26,6 +22,9 @@ exports.replaceRouterComponent = ({ history }) => {
   return ConnectedRouterWrapper
 }
 
+const history = createHistory({ getUserConfirmation })
+// block must return a string to conform
+history.block((location, action) => location.pathname)
 exports.replaceHistory = () => history
 
 // eslint-disable-next-line react/display-name
