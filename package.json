@@ -49,10 +49,10 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "start": "gatsby develop",
+    "start": "gatsby develop -p 3000",
     "build": "gatsby build && npm run build:post",
     "build:post": "NODE_ENV=production node scripts",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -p 3000",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
