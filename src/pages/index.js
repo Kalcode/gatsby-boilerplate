@@ -1,10 +1,10 @@
 import React from 'react'
 import Helmet from 'components/Helmet'
-import PropTypes from 'prop-types'
 import Link from 'components/Link'
-import content from './content.json'
 
-export default function Home(props) {
+import content from 'content/home.json'
+
+export default function Home({ content: home }) {
   return (
     <main>
       <Helmet
@@ -18,8 +18,4 @@ export default function Home(props) {
       <Link to='/landing-page/'>Landing Page</Link>
     </main>
   )
-}
-
-Home.propTypes = {
-  children: PropTypes.any,
 }
