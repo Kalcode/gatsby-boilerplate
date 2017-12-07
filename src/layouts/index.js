@@ -11,7 +11,7 @@ import './base.scss'
 const TemplateWrapper = ({ children, location }) => {
   return (
     <App location={location}>
-      <Nav />
+      <Nav location={location} />
       {children()}
       <Footer />
     </App>
