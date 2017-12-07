@@ -22,7 +22,7 @@ export default class ContentProvider extends PureComponent {
 
   componentWillUpdate(nextProps, nextState) {
     if (module.hot) {
-      console.log('Updating content')
+      console.log('ContentProvider: Updating Content')
       this.updateContent()
     }
   }
