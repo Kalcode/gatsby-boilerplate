@@ -6,7 +6,6 @@ import config from 'config'
 export default class BaseHelmet extends PureComponent {
   static propTypes = {
     location: PropTypes.object,
-    content: PropTypes.object,
   }
 
   get url() {
@@ -14,11 +13,11 @@ export default class BaseHelmet extends PureComponent {
   }
 
   get title() {
-    return this.props.content.helmet.meta_title
+    return config.meta_title
   }
 
   get description() {
-    return this.props.content.helmet.meta_description
+    return config.meta_description
   }
 
   render() {

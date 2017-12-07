@@ -2,6 +2,9 @@ var PHONE = ['TODO', 'TODO', 'TODO']
 var EMAIL = 'TODO'
 
 var config = {
+  meta_title: 'GatsbyJs | Boilerplate',
+  meta_description: '',
+
   // Required info for schema
   email: EMAIL,
   logo: 'TODO',
