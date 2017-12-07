@@ -1,7 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-export default function AboutPage(props) {
+export default function AboutPage() {
   return (
     <main className='row'>
       <div className='small-6 columns'>
@@ -9,8 +8,4 @@ export default function AboutPage(props) {
       </div>
     </main>
   )
-}
-
-AboutPage.propTypes = {
-  children: PropTypes.any,
 }
