@@ -10,14 +10,14 @@ export default class Page2 extends PureComponent {
   render() {
     const { children } = this.props
     return (
-      <div>
+      <main>
         <h1>Hi from the second page</h1>
         <p>Welcome to page 2</p>
         <Link to='/'>Go back to the homepage</Link>
         <div style={{ marginTop: '2000px' }}>
           <div>FIN</div>
         </div>
-      </div>
+      </main>
     )
   }
 }
