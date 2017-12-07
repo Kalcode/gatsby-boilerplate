@@ -2,18 +2,25 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 import App from 'components/App'
+import Footer from 'components/Footer'
+import Nav from 'components/Nav'
 
+import './normalize.scss'
 import './base.scss'
 
-const Alternate = ({ children, location }) => (
-  <App location={location}>
-    {children()}
-  </App>
-)
+const TemplateWrapper = ({ children, location }) => {
+  return (
+    <App location={location}>
+      <Nav location={location} />
+      {children()}
+      <Footer />
+    </App>
+  )
+}
 
-Alternate.propTypes = {
-  children: PropTypes.func,
+TemplateWrapper.propTypes = {
+  children: PropTypes.any,
   location: PropTypes.object,
 }
 
-export default Alternate
+export default TemplateWrapper
