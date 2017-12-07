@@ -1,23 +1,17 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import Link from 'components/Link'
-import PropTypes from 'prop-types'
 
-export default class Page2 extends PureComponent {
-  static propTypes = {
-    children: PropTypes.any,
-  }
+import content from 'content/page-2.json'
 
-  render() {
-    const { children } = this.props
-    return (
-      <main>
-        <h1>Hi from the second page</h1>
-        <p>Welcome to page 2</p>
-        <Link to='/'>Go back to the homepage</Link>
-        <div style={{ marginTop: '2000px' }}>
-          <div>FIN</div>
-        </div>
-      </main>
-    )
-  }
+export default function Page2(props) {
+  return (
+    <main>
+      <h1>{content.title}</h1>
+      <p>{content.intro}</p>
+      <Link to={content.cta.to}>{content.cta.text}</Link>
+      <div style={{ marginTop: '2000px' }}>
+        <div>{content.outro}</div>
+      </div>
+    </main>
+  )
 }
