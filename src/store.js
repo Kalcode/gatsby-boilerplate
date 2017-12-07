@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 
 import saga from './saga'
-import reducer from './reducer'
+import reducer from './reducers'
 
 export default function configureStore(initialState = {}) {
   const middlewares = []
@@ -22,8 +22,8 @@ export default function configureStore(initialState = {}) {
   sagaMiddleware.run(saga)
 
   if (module.hot) {
-    module.hot.accept('./reducer', () => {
-      const nextRootReducer = require('./reducer')
+    module.hot.accept('./reducers', () => {
+      const nextRootReducer = require('./reducers/index')
       store.replaceReducer(nextRootReducer)
     })
   }
