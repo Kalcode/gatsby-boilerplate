@@ -1,17 +1,16 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
-export default class About extends PureComponent {
-  static propTypes = {
-    children: PropTypes.any,
-  }
-
-  render() {
-    const { children } = this.props
-    return (
-      <div>
+export default function AboutPage(props) {
+  return (
+    <div className='row'>
+      <div className='small-6 columns'>
         About Us
       </div>
-    )
-  }
+    </div>
+  )
+}
+
+AboutPage.propTypes = {
+  children: PropTypes.any,
 }
