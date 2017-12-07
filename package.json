@@ -44,7 +44,8 @@
     "eslint-config-standard-react": "^4.2.0",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-react": "^6.9.0",
-    "eslint-plugin-standard": "^2.0.1"
+    "eslint-plugin-standard": "^2.0.1",
+    "prettier": "^1.6.1"
   },
   "keywords": [
     "gatsby"
@@ -58,8 +59,5 @@
     "develop": "gatsby develop -p 3000",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "devDependencies": {
-    "prettier": "^1.6.1"
   }
 }
