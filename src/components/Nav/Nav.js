@@ -8,6 +8,7 @@ import styles from './styles.module.scss'
 
 export default class Nav extends Component {
   static propTypes = {
+    content: PropTypes.object,
     location: PropTypes.object,
     opened: PropTypes.bool,
     toggle: PropTypes.func,
@@ -44,11 +45,7 @@ export default class Nav extends Component {
       <nav className={styles.nav}>
         <Bar opened={this.props.opened} toggle={this.toggle} />
         <Menu opened={this.props.opened}>
-          {[
-            { text: 'Home', to: '/' },
-            { text: 'About', to: '/about' },
-            { text: 'Page 2', to: '/page-2' },
-          ]}
+          {this.props.content.nav.links}
         </Menu>
       </nav>
     )
