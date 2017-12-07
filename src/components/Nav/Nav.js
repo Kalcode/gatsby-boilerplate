@@ -16,6 +16,7 @@ export default class Nav extends Component {
   }
 
   componentDidMount() {
+    if (this.props.opened) this.props.close()
     window.addEventListener('wheel', this.onScroll)
     window.addEventListener('touchmove', this.onScroll)
   }
