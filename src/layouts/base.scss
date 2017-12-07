@@ -3,3 +3,13 @@ body {
   color: $primary;
   font: $body-weight 1rem $body-font;
 }
+
+#main {
+  flex: 1;
+}
+
+.root > div {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

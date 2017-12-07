@@ -69,8 +69,8 @@ export default class PageTransition extends Component {
         {
           (status) => {
             return (
-              <div>
-                <CurrentTransition ref={this.refNode} timeout={timeout} />
+              <div id='main'>
+                {<CurrentTransition ref={this.refNode} timeout={timeout} />}
                 {
                   createElement(this.props.pageResources.component, {
                     ...this.props,

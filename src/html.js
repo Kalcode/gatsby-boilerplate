@@ -41,6 +41,7 @@ module.exports = class HTML extends React.Component {
           <div
             key={`body`}
             id='___gatsby'
+            className='root'
             dangerouslySetInnerHTML={{ __html: this.props.body }}
           />
           {this.props.postBodyComponents}
