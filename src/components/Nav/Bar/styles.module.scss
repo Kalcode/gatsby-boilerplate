@@ -1,0 +1,17 @@
+.container {
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: $nav-height;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.right {
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}

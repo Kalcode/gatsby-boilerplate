@@ -1,0 +1,52 @@
+.container {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  height: 100%;
+  margin-left: 0;
+  padding: 18px;
+  position: relative;
+  vertical-align: middle;
+  width: 65px;
+  z-index: 5;
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+.text {
+  color: $primary;
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+  text-transform: uppercase;
+
+  @include breakpoint(medium) {
+    font-size: 12px;
+  }
+}
+
+.burger {
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+}
+
+.bar {
+  background-color: $primary;
+  border-radius: 1px;
+  display: block;
+  height: 2px;
+  margin-bottom: 4px;
+  transform-origin: center;
+  width: 100%;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

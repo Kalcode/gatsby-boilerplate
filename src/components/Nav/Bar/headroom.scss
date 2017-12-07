@@ -1,0 +1,29 @@
+:global(.headroom) {
+  background-color: $white;
+  border-bottom: 1px solid $border-color;
+  left: 0;
+  margin: auto;
+  max-width: none;
+  padding: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateY(0%);
+  transition: transform 0.25s ease-in, max-width 0.25s ease-in;
+  z-index: $z-nav;
+}
+
+:global(.headroom--unfixed) {
+  position: fixed;
+  transform: translateY(0%);
+}
+
+:global(.headroom--unpinned) {
+  position: fixed;
+  transform: translateY(-100%);
+}
+
+:global(.headroom--pinned) {
+  position: fixed;
+  transform: translateY(0%);
+}

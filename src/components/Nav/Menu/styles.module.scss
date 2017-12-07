@@ -1,0 +1,49 @@
+.container {
+  background-color: $background;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  padding-top: $nav-height;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+}
+
+.content {
+  height: 100%;
+  min-height: 300px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0 auto;
+  max-width: 400px;
+  min-width: 320px;
+}
+
+.link {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  font-size: 18px;
+  justify-content: center;
+  margin-bottom: 0;
+  max-height: 50px;
+  padding: 0 20px;
+  position: relative;
+  transform-origin: top;
+  transition: color 0.25s ease-in, background-color 0.25s ease-in;
+
+  &:hover {
+    background-color: darken($white, 20);
+    color: $black;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
