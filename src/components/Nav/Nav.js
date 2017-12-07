@@ -6,9 +6,10 @@ import Menu from './Menu'
 
 import styles from './styles.module.scss'
 
+import content from 'content/nav.json'
+
 export default class Nav extends Component {
   static propTypes = {
-    content: PropTypes.object,
     location: PropTypes.object,
     opened: PropTypes.bool,
     toggle: PropTypes.func,
@@ -46,7 +47,7 @@ export default class Nav extends Component {
       <nav className={styles.nav}>
         <Bar opened={this.props.opened} toggle={this.toggle} />
         <Menu opened={this.props.opened}>
-          {this.props.content.nav.links}
+          {content.nav.links}
         </Menu>
       </nav>
     )

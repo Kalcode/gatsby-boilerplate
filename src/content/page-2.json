@@ -1,0 +1,11 @@
+{
+  "title": "Hi from the second page",
+  "intro": "Welcome to page 2",
+
+  "cta": {
+    "text": "Go to Home page",
+    "to": "/"
+  },
+
+  "outro": "fin"
+}
