@@ -9,11 +9,22 @@ export default class ContentProvider extends PureComponent {
     children: PropTypes.any,
   }
 
+  state = {
+    test: true,
+  }
+
   default = 'en'
   english_keys = ['en', 'en-us', 'en-gb']
 
   componentWillMount() {
     this.locale = 'en'
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (module.hot) {
+      console.log('Updating content')
+      this.updateContent()
+    }
   }
 
   updateContent(predefined) {
