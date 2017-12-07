@@ -9,10 +9,9 @@ import styles from './styles.module.scss'
 export default class Nav extends Component {
   static propTypes = {
     location: PropTypes.object,
-  }
-
-  state = {
-    opened: false,
+    opened: PropTypes.bool,
+    toggle: PropTypes.func,
+    close: PropTypes.func,
   }
 
   componentDidMount() {
@@ -27,27 +26,24 @@ export default class Nav extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.location !== nextProps.location) {
-      this.setState({ opened: false })
+      this.props.close()
     }
   }
 
   onScroll = (event) => {
-    if (this.state.opened) {
+    if (this.props.opened) {
       event.preventDefault()
       return false
     }
   }
 
-  toggle = () => {
-    const opened = !this.state.opened
-    this.setState({ opened })
-  }
+  toggle = () => { this.props.toggle() }
 
   render() {
     return (
       <nav className={styles.nav}>
-        <Bar opened={this.state.opened} toggle={this.toggle} />
-        <Menu opened={this.state.opened}>
+        <Bar opened={this.props.opened} toggle={this.toggle} />
+        <Menu opened={this.props.opened}>
           {[
             { text: 'Home', to: '/' },
             { text: 'About', to: '/about' },

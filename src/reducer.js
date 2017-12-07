@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux'
-import { routerReducer as routing } from 'react-router-redux'
-import count from 'reducers/count'
+import nav from 'reducers/nav'
 
 export default combineReducers({
-  routing,
-  count,
+  nav,
 })
