@@ -1,7 +1,7 @@
 export default {
   helmet: {
-    meta_title: ' | ',
-    meta_description: ``,
+    meta_title: 'GatsbyJs | Boilerplate',
+    meta_description: '',
   },
 
   nav: {
