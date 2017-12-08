@@ -27,7 +27,7 @@ export default class Form extends Component {
   }
 
   refInputs = (c) => {
-    if (c.isInput && !includes(this.inputs, c)) this.inputs.push(c)
+    if (c && c.isInput && !includes(this.inputs, c)) this.inputs.push(c)
   }
 
   render() {

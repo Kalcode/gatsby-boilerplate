@@ -9,6 +9,7 @@ export const Types = createTypes(`
   `, { prefix: '@@app/forms/' })
 
 export const register = (id) => ({ type: Types.REGISTER, id })
+export const set = (formId, id, value) => ({ type: Types.SET, formId, id, value })
 
 const INITIAL_STATE = {}
 
@@ -27,6 +28,15 @@ class ACTION_HANDLERS {
         submitted: false,
         valid: null,
       }
+    }
+    return { ...state, ...forms }
+  }
+
+  static [Types.SET](state, action) {
+    let forms = { ...state }
+    const { formId, id, value } = action
+    if (forms[formId]) {
+      forms[formId].fields[id] = value
     }
     return { ...state, ...forms }
   }

@@ -12,6 +12,34 @@ export default function FormTestPage() {
             label='Email'
             placeholder='example@test.com'
           />
+          <Input
+            id='Field202'
+            label='Email'
+            placeholder='example@test.com'
+          />
+          <Input
+            id='Field203'
+            label='Email'
+            placeholder='example@test.com'
+          />
+          <Submit>Submit</Submit>
+        </Form>
+        <Form id='FormTest'>
+          <Input
+            id='Field201'
+            label='Email'
+            placeholder='example@test.com'
+          />
+          <Input
+            id='Field202'
+            label='Email'
+            placeholder='example@test.com'
+          />
+          <Input
+            id='Field203'
+            label='Email'
+            placeholder='example@test.com'
+          />
           <Submit>Submit</Submit>
         </Form>
       </div>
