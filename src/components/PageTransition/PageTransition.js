@@ -28,6 +28,7 @@ export default class PageTransition extends Component {
   }
 
   listenerHandler(event) {
+    if (this.props.location.pathname === event.detail.pathname) return false
     const nextPageResources = this.props.loader.getResourcesForPathname(
       event.detail.pathname,
       nextPageResources => this.setState({ nextPageResources })
