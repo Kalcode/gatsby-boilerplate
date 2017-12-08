@@ -13,6 +13,8 @@ export default class TextInput extends Component {
     value: PropTypes.string,
   }
 
+  get isInput() { return true }
+
   state = {
     value: this.props.value || '',
   }
