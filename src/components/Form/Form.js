@@ -6,10 +6,11 @@ export default class Form extends Component {
   static propTypes = {
     children: PropTypes.any,
     id: PropTypes.string,
+    register: PropTypes.func,
   }
 
   componentDidMount() {
-    console.log(this.inputs)
+    this.props.register(this.props.id)
   }
 
   inputs = []
@@ -19,9 +20,9 @@ export default class Form extends Component {
   }
 
   get children() {
-    const children = this.props.children
+    const { children, id } = this.props
     return Children.map(children, (child, key) => {
-      return cloneElement(child, { key, ref: this.refInputs })
+      return cloneElement(child, { formId: id, key, ref: this.refInputs })
     })
   }
 

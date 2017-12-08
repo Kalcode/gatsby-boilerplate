@@ -1,3 +1,20 @@
-export default from './Form'
 export Input from './Inputs'
 export Submit from './Submit'
+
+import Form from './Form'
+import { connect } from 'react-redux'
+import * as Actions from 'reducers/forms'
+
+function mapStateToProps({ forms }) {
+  return {
+    store: forms,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    register: (id) => { dispatch(Actions.register(id)) },
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form)

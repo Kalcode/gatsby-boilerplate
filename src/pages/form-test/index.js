@@ -6,7 +6,7 @@ export default function FormTestPage() {
     <main className='row'>
       <div className='columns'>
         <h2>Form Test</h2>
-        <Form>
+        <Form id='FormTest'>
           <Input
             id='Field201'
             label='Email'
