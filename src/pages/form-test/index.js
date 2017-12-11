@@ -1,5 +1,5 @@
 import React from 'react'
-import Form, { Input, Submit } from 'components/Form'
+import Form, { Input, TextArea, Submit } from 'components/Form'
 
 export default function FormTestPage() {
   return (
@@ -25,9 +25,11 @@ export default function FormTestPage() {
             validator='email'
             required
           />
-          <Input
+          <TextArea
             id='Field4'
             label='Message'
+            min={35}
+            required
           />
           <Submit>Submit</Submit>
         </Form>

@@ -91,7 +91,6 @@ export default class TextInput extends Component {
       onChange: this.onChange,
       placeholder: this.props.placeholder,
       required: this.props.required,
-      type: 'text',
       value: this.value,
     }
   }

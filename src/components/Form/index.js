@@ -1,4 +1,5 @@
 export Input from './Inputs'
+export TextArea from './TextArea'
 export Submit from './Submit'
 
 import Form from './Form'

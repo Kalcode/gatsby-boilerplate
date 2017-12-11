@@ -1,15 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './styles.module.scss'
+import AutoTextArea from 'react-textarea-autosize'
+import styles from '../Inputs/styles.module.scss'
 
-export default function InputView({ children, error, inputProps }) {
+export default function TextArea({ children, error, inputProps }) {
   return (
     <div className={styles.container}>
       <label className={error ? styles.labelInvalid : styles.label}>
         {children}
-        <input
+        <AutoTextArea
           className={styles.input}
-          type='text'
+          minRows={3}
           {...inputProps}
         />
       </label>
@@ -17,7 +18,7 @@ export default function InputView({ children, error, inputProps }) {
   )
 }
 
-InputView.propTypes = {
+TextArea.propTypes = {
   children: PropTypes.any,
   error: PropTypes.any,
   inputProps: PropTypes.object.isRequired,
