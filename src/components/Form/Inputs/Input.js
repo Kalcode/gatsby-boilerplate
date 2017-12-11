@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import View from './InputView'
 import Validators from './Validators'
 
-
 export default class TextInput extends Component {
   static propTypes = {
     defaultValue: PropTypes.string,
@@ -71,7 +70,7 @@ export default class TextInput extends Component {
       this.setState({ error: this.validator.error, invalid: true })
       return false
     } else {
-      this.setState({ error: null, invalid: false })
+      this.setState({ error: null, serverError: null, invalid: false })
       return true
     }
   }
