@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import View from './InputView'
+import Validators from './Validators'
+
 
 export default class TextInput extends Component {
   static propTypes = {
@@ -14,14 +16,20 @@ export default class TextInput extends Component {
     required: PropTypes.bool,
     set: PropTypes.func,
     store: PropTypes.object,
+    validator: PropTypes.string,
+  }
+
+  static defaultProps = {
+    validator: 'noEmpty',
   }
 
   state = {
     error: null,
-    valid: null,
+    invalid: null,
   }
 
   componentDidMount() {
+    this.validator = Validators[this.props.validator]
     this.setValue(this.props.defaultValue || '')
   }
 
@@ -29,7 +37,7 @@ export default class TextInput extends Component {
     const { store, formId } = nextProps
     if (store[formId] && store[formId].error && store[formId].error.fields) {
       this.parseErrors(store[formId].error.fields)
-    } else if (this.state.error) {
+    } else if (!this.state.invalid && this.state.error) {
       this.setState({ error: null })
     }
   }
@@ -43,12 +51,28 @@ export default class TextInput extends Component {
 
   onChange = (event) => {
     const value = event.target.value
+    if (this.state.invalid) this.isValid()
     this.setValue(value)
+  }
+
+  onBlur = (event) => {
+    this.isValid()
   }
 
   setValue(value) {
     const { formId, id } = this.props
     this.props.set(formId, id, value)
+  }
+
+  isValid = () => {
+    const { required } = this.props
+    if (required && !this.validator.regEx.test(this.value)) {
+      this.setState({ error: this.validator.error, invalid: true })
+      return false
+    } else {
+      this.setState({ error: null, invalid: false })
+      return true
+    }
   }
 
   get value() {
@@ -63,6 +87,7 @@ export default class TextInput extends Component {
   get inputProps() {
     return {
       hidden: this.props.hidden,
+      onBlur: this.onBlur,
       onChange: this.onChange,
       placeholder: this.props.placeholder,
       required: this.props.required,
@@ -72,8 +97,10 @@ export default class TextInput extends Component {
   }
 
   get label() {
-    if (this.state.error) return `${this.props.label} (${this.state.error})`
-    else return this.props.label
+    let label = this.props.label
+    if (this.props.required) label += '*'
+    if (this.state.error) label += ` (${this.state.error})`
+    return label
   }
 
   render() {

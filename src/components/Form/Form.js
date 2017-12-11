@@ -19,7 +19,11 @@ export default class Form extends Component {
 
   onSubmit = (event) => {
     event.preventDefault()
-    this.props.submit(this.props.id, this.props.store[this.props.id])
+    let valid = true
+    this.inputs.forEach(input => {
+      if (!input.isValid()) valid = false
+    })
+    if (valid) this.props.submit(this.props.id, this.props.store[this.props.id])
   }
 
   get children() {
@@ -30,12 +34,15 @@ export default class Form extends Component {
   }
 
   refInputs = (c) => {
-    if (c && c.isInput && !includes(this.inputs, c)) this.inputs.push(c)
+    if (c && c.getWrappedInstance) {
+      const instance = c.getWrappedInstance()
+      if (instance.isInput && !includes(this.inputs, instance)) this.inputs.push(instance)
+    }
   }
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.onSubmit} noValidate>
         {this.children}
       </form>
     )

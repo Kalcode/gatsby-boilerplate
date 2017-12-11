@@ -10,15 +10,20 @@ export default function FormTestPage() {
           <Input
             id='Field1'
             label='Name'
+            required
           />
           <Input
             id='Field2'
             label='Phone'
+            validator='phone'
+            required
           />
           <Input
             id='Field3'
             label='Email'
             placeholder='example@test.com'
+            validator='email'
+            required
           />
           <Input
             id='Field4'
