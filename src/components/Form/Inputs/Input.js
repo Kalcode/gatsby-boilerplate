@@ -30,7 +30,7 @@ export default class TextInput extends Component {
 
   componentDidMount() {
     this.validator = Validators[this.props.validator]
-    this.setValue(this.props.defaultValue || '')
+    this.setValue(this.value || this.props.defaultValue || '')
   }
 
   componentWillReceiveProps(nextProps) {
@@ -75,6 +75,11 @@ export default class TextInput extends Component {
     }
   }
 
+  get isDisabled() {
+    const { formId, store } = this.props
+    return store[formId] && (store[formId].fetching || store[formId].submitted)
+  }
+
   get value() {
     const { formId, store, id } = this.props
     if (store[formId] && store[formId].fields[id]) {
@@ -86,6 +91,7 @@ export default class TextInput extends Component {
 
   get inputProps() {
     return {
+      disabled: this.isDisabled,
       hidden: this.props.hidden,
       onBlur: this.onBlur,
       onChange: this.onChange,
