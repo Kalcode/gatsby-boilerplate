@@ -41,15 +41,6 @@ export default class TextInput extends Component {
 
   get isInput() { return true }
 
-  getValue() {
-    const { formId, store, id } = this.props
-    if (store[formId] && store[formId].fields[id]) {
-      return store[formId].fields[id]
-    } else {
-      return ''
-    }
-  }
-
   onChange = (event) => {
     const value = event.target.value
     this.setValue(value)
@@ -60,6 +51,15 @@ export default class TextInput extends Component {
     this.props.set(formId, id, value)
   }
 
+  get value() {
+    const { formId, store, id } = this.props
+    if (store[formId] && store[formId].fields[id]) {
+      return store[formId].fields[id]
+    } else {
+      return ''
+    }
+  }
+
   get inputProps() {
     return {
       hidden: this.props.hidden,
@@ -67,7 +67,7 @@ export default class TextInput extends Component {
       placeholder: this.props.placeholder,
       required: this.props.required,
       type: 'text',
-      value: this.getValue(),
+      value: this.value,
     }
   }
 
