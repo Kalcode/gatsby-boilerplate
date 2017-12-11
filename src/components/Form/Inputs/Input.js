@@ -26,6 +26,7 @@ export default class TextInput extends Component {
   state = {
     error: null,
     invalid: null,
+    serverError: null,
   }
 
   componentDidMount() {
@@ -38,13 +39,13 @@ export default class TextInput extends Component {
     if (store[formId] && store[formId].error && store[formId].error.fields) {
       this.parseErrors(store[formId].error.fields)
     } else if (!this.state.invalid && this.state.error) {
-      this.setState({ error: null })
+      this.setState({ serverError: null })
     }
   }
 
   parseErrors(errors) {
     const fieldError = errors.find(error => error.ID === this.props.id)
-    if (fieldError) this.setState({ error: fieldError.ErrorText })
+    if (fieldError) this.setState({ serverError: fieldError.ErrorText })
   }
 
   get isInput() { return true }
@@ -99,15 +100,20 @@ export default class TextInput extends Component {
   get label() {
     let label = this.props.label
     if (this.props.required) label += '*'
-    if (this.state.error) label += ` (${this.state.error})`
     return label
   }
 
+  get errorHTML() {
+    const error = this.state.error || this.state.serverError
+    return <span dangerouslySetInnerHTML={{ __html: ` (${error})` }} />
+  }
+
   render() {
-    const { error } = this.state
+    const { error, serverError } = this.state
     return (
-      <View error={error} inputProps={this.inputProps}>
+      <View error={error || serverError} inputProps={this.inputProps}>
         {this.label}
+        {(error || serverError) && this.errorHTML}
       </View>
     )
   }
