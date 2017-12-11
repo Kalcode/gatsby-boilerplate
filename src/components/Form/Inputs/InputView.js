@@ -5,7 +5,7 @@ import styles from './styles.module.scss'
 export default function InputView({ children, error, inputProps }) {
   return (
     <div className={styles.container}>
-      <label className={error ? styles.labelInvalid : styles.label}>
+      <label htmlForm={inputProps.id} className={error ? styles.labelInvalid : styles.label}>
         {children}
         <input
           className={styles.input}

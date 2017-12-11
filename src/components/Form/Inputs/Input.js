@@ -6,6 +6,7 @@ import Validators from './Validators'
 
 export default class TextInput extends Component {
   static propTypes = {
+    autocomplete: PropTypes.string,
     defaultValue: PropTypes.string,
     formId: PropTypes.string,
     hidden: PropTypes.bool,
@@ -91,8 +92,11 @@ export default class TextInput extends Component {
 
   get inputProps() {
     return {
+      autoComplete: this.props.autocomplete,
       disabled: this.isDisabled,
       hidden: this.props.hidden,
+      id: this.props.id,
+      name: this.props.id,
       onBlur: this.onBlur,
       onChange: this.onChange,
       placeholder: this.props.placeholder,

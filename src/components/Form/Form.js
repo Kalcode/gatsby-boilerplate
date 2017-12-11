@@ -4,6 +4,7 @@ import { includes } from 'lodash'
 
 export default class Form extends Component {
   static propTypes = {
+    action: PropTypes.any,
     children: PropTypes.any,
     id: PropTypes.string,
     register: PropTypes.func,
@@ -23,12 +24,16 @@ export default class Form extends Component {
     this.inputs.forEach(input => {
       if (!input.isValid()) valid = false
     })
-    if (valid) this.props.submit(this.props.id, this.props.store[this.props.id])
+    if (valid) {
+      if (this.props.action) this.form.submit()
+      else this.props.submit(this.props.id, this.props.store[this.props.id])
+    }
   }
 
   get children() {
     const { children, id } = this.props
     return Children.map(children, (child, key) => {
+      if (['input'].indexOf(child.type) > -1) return child
       return cloneElement(child, { formId: id, key, ref: this.refInputs })
     })
   }
@@ -42,7 +47,15 @@ export default class Form extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit} noValidate>
+      <form
+        acceptCharset='UTF-8'
+        action={this.props.action}
+        encType='multipart/form-data'
+        method='post'
+        noValidate
+        onSubmit={this.onSubmit}
+        ref={c => { this.form = c }}
+      >
         {this.children}
       </form>
     )
