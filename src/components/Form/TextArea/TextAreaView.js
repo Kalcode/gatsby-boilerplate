@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import AutoTextArea from 'react-textarea-autosize'
 import styles from '../Inputs/styles.module.scss'
 
-export default function TextArea({ children, error, inputProps }) {
+export default function TextAreaView({ children, error, inputProps }) {
   return (
     <div className={styles.container}>
       <label htmlFor={inputProps.id} className={error ? styles.labelInvalid : styles.label}>
@@ -18,7 +18,7 @@ export default function TextArea({ children, error, inputProps }) {
   )
 }
 
-TextArea.propTypes = {
+TextAreaView.propTypes = {
   children: PropTypes.any,
   error: PropTypes.any,
   inputProps: PropTypes.object.isRequired,
