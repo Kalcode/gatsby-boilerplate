@@ -1,19 +1,44 @@
 import React, { Children, cloneElement, Component } from 'react'
 import PropTypes from 'prop-types'
+
+import Submitted from './Submitted'
+
 import { includes } from 'lodash'
 
 export default class Form extends Component {
   static propTypes = {
     action: PropTypes.any,
+    submittedElement: PropTypes.node,
     children: PropTypes.any,
     id: PropTypes.string,
     register: PropTypes.func,
-    submit: PropTypes.func,
     store: PropTypes.object,
+    submit: PropTypes.func,
+  }
+
+  state = {
+    exited: this.props.store[this.props.id] && this.props.store[this.props.id].submitted,
   }
 
   componentDidMount() {
     this.props.register(this.props.id)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const form = nextProps.store[nextProps.id]
+    if (form && form.submitted && !this.state.exited) {
+      this.exitAnimation()
+    }
+  }
+
+  exitAnimation() {
+    TweenMax.to(this.form, 0.5, {
+      opacity: 0,
+      delay: 1,
+      onComplete: () => {
+        this.setState({ exited: true })
+      },
+    })
   }
 
   inputs = []
@@ -46,18 +71,23 @@ export default class Form extends Component {
   }
 
   render() {
+    const { id, store, submittedElement } = this.props
+    const { exited } = this.state
     return (
-      <form
-        acceptCharset='UTF-8'
-        action={this.props.action}
-        encType='multipart/form-data'
-        method='post'
-        noValidate
-        onSubmit={this.onSubmit}
-        ref={c => { this.form = c }}
-      >
-        {this.children}
-      </form>
+      <div>
+        {!exited && <form
+          acceptCharset='UTF-8'
+          action={this.props.action}
+          encType='multipart/form-data'
+          method='post'
+          noValidate
+          onSubmit={this.onSubmit}
+          ref={c => { this.form = c }}
+        >
+          {this.children}
+        </form>}
+        {exited && submittedElement && <Submitted>{submittedElement}</Submitted>}
+      </div>
     )
   }
 }

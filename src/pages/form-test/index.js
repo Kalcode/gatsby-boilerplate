@@ -1,5 +1,6 @@
 import React from 'react'
 import Form, { Input, TextArea, Submit } from 'components/Form'
+import ThankYou from 'components/ThankYou'
 
 export default function FormTestPage() {
   return (
@@ -7,6 +8,7 @@ export default function FormTestPage() {
       <div className='columns'>
         <h2>Form Test</h2>
         <Form
+          submittedElement={ThankYou}
           id='zwtrd7608mqb1q'>
           <Input
             id='Field1'
