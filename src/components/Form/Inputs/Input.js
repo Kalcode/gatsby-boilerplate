@@ -16,8 +16,27 @@ export default class TextInput extends Component {
     store: PropTypes.object,
   }
 
+  state = {
+    error: null,
+    valid: null,
+  }
+
   componentDidMount() {
     this.setValue(this.props.defaultValue || '')
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { store, formId } = nextProps
+    if (store[formId] && store[formId].error && store[formId].error.fields) {
+      this.parseErrors(store[formId].error.fields)
+    } else if (this.state.error) {
+      this.setState({ error: null })
+    }
+  }
+
+  parseErrors(errors) {
+    const fieldError = errors.find(error => error.ID === this.props.id)
+    if (fieldError) this.setState({ error: fieldError.ErrorText })
   }
 
   get isInput() { return true }
@@ -49,12 +68,18 @@ export default class TextInput extends Component {
     }
   }
 
+  get label() {
+    if (this.state.error) return `${this.props.label} (${this.state.error})`
+    else return this.props.label
+  }
+
   render() {
     const { label } = this.props
+    const { error } = this.state
     return (
       <div className={styles.container}>
-        <label className={styles.label}>
-          {label}
+        <label className={error ? styles.labelInvalid : styles.label}>
+          {this.label}
           <input
             className={styles.input}
             type='text'

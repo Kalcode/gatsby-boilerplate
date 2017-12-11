@@ -2,6 +2,15 @@
   margin: 10px 0;
 }
 
+.labelInvalid {
+  color: $red;
+
+  .input {
+    border: 1px solid $red;
+    outline-color: $red;
+  }
+}
+
 .input {
   display: block;
 }
