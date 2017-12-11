@@ -14,7 +14,6 @@ export default class TextInput extends Component {
     required: PropTypes.bool,
     set: PropTypes.func,
     store: PropTypes.object,
-    value: PropTypes.string,
   }
 
   componentDidMount() {
@@ -42,8 +41,16 @@ export default class TextInput extends Component {
     this.props.set(formId, id, value)
   }
 
+  get inputProps() {
+    return {
+      hidden: this.props.hidden,
+      placeholder: this.props.placeholder,
+      required: this.props.required,
+    }
+  }
+
   render() {
-    const { label, placeholder } = this.props
+    const { label } = this.props
     return (
       <div className={styles.container}>
         <label className={styles.label}>
@@ -51,9 +58,9 @@ export default class TextInput extends Component {
           <input
             className={styles.input}
             type='text'
-            placeholder={placeholder}
             onChange={this.onChange}
             value={this.getValue()}
+            {...this.inputProps}
           />
         </label>
       </div>
