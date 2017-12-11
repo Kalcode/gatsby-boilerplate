@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import styles from './styles.module.scss'
+import View from './InputView'
 
 export default class TextInput extends Component {
   static propTypes = {
@@ -63,8 +63,11 @@ export default class TextInput extends Component {
   get inputProps() {
     return {
       hidden: this.props.hidden,
+      onChange: this.onChange,
       placeholder: this.props.placeholder,
       required: this.props.required,
+      type: 'text',
+      value: this.getValue(),
     }
   }
 
@@ -74,21 +77,11 @@ export default class TextInput extends Component {
   }
 
   render() {
-    const { label } = this.props
     const { error } = this.state
     return (
-      <div className={styles.container}>
-        <label className={error ? styles.labelInvalid : styles.label}>
-          {this.label}
-          <input
-            className={styles.input}
-            type='text'
-            onChange={this.onChange}
-            value={this.getValue()}
-            {...this.inputProps}
-          />
-        </label>
-      </div>
+      <View error={error} inputProps={this.inputProps}>
+        {this.label}
+      </View>
     )
   }
 }
