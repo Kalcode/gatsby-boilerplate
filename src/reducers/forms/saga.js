@@ -1,14 +1,14 @@
 import API from './api'
 import * as Actions from './'
 import { put, call, takeEvery } from 'redux-saga/effects'
-import { data, error as errorData } from './test'
+import Logger from 'utils/logger'
 
 function * fetchSubmit(action) {
   try {
     const data = yield call(API.newEntry, action)
     yield put(Actions.submitted(action.formId, data))
   } catch (error) {
-    console.error(error)
+    Logger.error(error)
     yield put(Actions.submitted(action.formId, {
       formId: action.id,
       msg: error.message,

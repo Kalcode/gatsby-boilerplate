@@ -1,4 +1,5 @@
 import { map } from 'lodash'
+import Logger from 'utils/logger'
 
 export default class API {
   static newEntry(action) {
@@ -28,10 +29,8 @@ export default class API {
   }
 
   static debug(endpoint, post = true) {
-    if (process.env.NODE_ENV === 'development') {
-      const prefix = post ? 'Posting' : 'Fetching'
-      console.log(prefix + ' information: ' + API.url + endpoint)
-    }
+    const prefix = post ? 'Posting' : 'Fetching'
+    Logger.debug(prefix + ' information: ' + API.url + endpoint)
   }
 
   static get token() {
