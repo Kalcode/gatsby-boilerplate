@@ -28,7 +28,6 @@ export default function FormTestPage() {
           <TextArea
             id='Field4'
             label='Message'
-            min={35}
             required
           />
           <Submit>Submit</Submit>
