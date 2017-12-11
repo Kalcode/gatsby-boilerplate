@@ -14,6 +14,7 @@ function mapStateToProps({ forms }) {
 function mapDispatchToProps(dispatch) {
   return {
     register: (id) => { dispatch(Actions.register(id)) },
+    submit: (formId, data) => { dispatch(Actions.submit(formId, data)) },
   }
 }
 

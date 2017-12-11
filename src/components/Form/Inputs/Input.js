@@ -5,7 +5,7 @@ import styles from './styles.module.scss'
 
 export default class TextInput extends Component {
   static propTypes = {
-    store: PropTypes.object,
+    defaultValue: PropTypes.string,
     formId: PropTypes.string,
     hidden: PropTypes.bool,
     id: PropTypes.string,
@@ -13,7 +13,12 @@ export default class TextInput extends Component {
     placeholder: PropTypes.string,
     required: PropTypes.bool,
     set: PropTypes.func,
+    store: PropTypes.object,
     value: PropTypes.string,
+  }
+
+  componentDidMount() {
+    this.setValue(this.props.defaultValue || '')
   }
 
   get isInput() { return true }
@@ -28,8 +33,12 @@ export default class TextInput extends Component {
   }
 
   onChange = (event) => {
-    const { formId, id } = this.props
     const value = event.target.value
+    this.setValue(value)
+  }
+
+  setValue(value) {
+    const { formId, id } = this.props
     this.props.set(formId, id, value)
   }
 

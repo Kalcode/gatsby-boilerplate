@@ -6,39 +6,23 @@ export default function FormTestPage() {
     <main className='row'>
       <div className='columns'>
         <h2>Form Test</h2>
-        <Form id='FormTest'>
+        <Form id='zwtrd7608mqb1q'>
           <Input
-            id='Field201'
+            id='Field1'
+            label='Name'
+          />
+          <Input
+            id='Field2'
+            label='Phone'
+          />
+          <Input
+            id='Field3'
             label='Email'
             placeholder='example@test.com'
           />
           <Input
-            id='Field202'
-            label='Email'
-            placeholder='example@test.com'
-          />
-          <Input
-            id='Field203'
-            label='Email'
-            placeholder='example@test.com'
-          />
-          <Submit>Submit</Submit>
-        </Form>
-        <Form id='FormTest'>
-          <Input
-            id='Field201'
-            label='Email'
-            placeholder='example@test.com'
-          />
-          <Input
-            id='Field202'
-            label='Email'
-            placeholder='example@test.com'
-          />
-          <Input
-            id='Field203'
-            label='Email'
-            placeholder='example@test.com'
+            id='Field4'
+            label='Message'
           />
           <Submit>Submit</Submit>
         </Form>

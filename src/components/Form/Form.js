@@ -7,6 +7,8 @@ export default class Form extends Component {
     children: PropTypes.any,
     id: PropTypes.string,
     register: PropTypes.func,
+    submit: PropTypes.func,
+    store: PropTypes.object,
   }
 
   componentDidMount() {
@@ -17,6 +19,7 @@ export default class Form extends Component {
 
   onSubmit = (event) => {
     event.preventDefault()
+    this.props.submit(this.props.id, this.props.store[this.props.id])
   }
 
   get children() {
