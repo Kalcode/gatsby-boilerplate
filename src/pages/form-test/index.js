@@ -28,14 +28,11 @@ export default function FormTestPage() {
             label='Email'
             autocomplete='email'
             placeholder='example@test.com'
-            validator='email'
-            required
+
           />
           <TextArea
             id='Field4'
             label='Message'
-            min={10}
-            required
           />
           <Submit>Submit</Submit>
         </Form>

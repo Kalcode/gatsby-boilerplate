@@ -1,6 +1,7 @@
 import React, { Children, cloneElement, Component } from 'react'
 import PropTypes from 'prop-types'
 
+import Alert from './Alert'
 import Submitted from './Submitted'
 
 import { includes } from 'lodash'
@@ -8,12 +9,12 @@ import { includes } from 'lodash'
 export default class Form extends Component {
   static propTypes = {
     action: PropTypes.any,
-    submittedElement: PropTypes.node,
     children: PropTypes.any,
     id: PropTypes.string,
     register: PropTypes.func,
     store: PropTypes.object,
     submit: PropTypes.func,
+    submittedElement: PropTypes.any,
   }
 
   state = {
@@ -42,6 +43,7 @@ export default class Form extends Component {
   }
 
   inputs = []
+  static htmlTags =['input', 'div', 'h1', 'h2', 'h3', 'p']
 
   onSubmit = (event) => {
     event.preventDefault()
@@ -58,7 +60,7 @@ export default class Form extends Component {
   get children() {
     const { children, id } = this.props
     return Children.map(children, (child, key) => {
-      if (['input'].indexOf(child.type) > -1) return child
+      if (Form.htmlTags.indexOf(child.type) > -1) return child
       return cloneElement(child, { formId: id, key, ref: this.refInputs })
     })
   }
@@ -75,6 +77,7 @@ export default class Form extends Component {
     const { exited } = this.state
     return (
       <div>
+        {store[id] && store[id].error && <Alert>{store[id].error.ErrorText}</Alert>}
         {!exited && <form
           acceptCharset='UTF-8'
           action={this.props.action}
