@@ -1,5 +1,5 @@
 import React from 'react'
-import Form, { Input, TextArea, Submit } from 'components/Form'
+import Form, { Input, TextArea, Select, Submit } from 'components/Form'
 import ThankYou from 'components/ThankYou'
 
 export default function FormTestPage() {
@@ -28,8 +28,19 @@ export default function FormTestPage() {
             label='Email'
             autocomplete='email'
             placeholder='example@test.com'
+            validator='email'
+            required
 
           />
+          <Select
+            id='Field6'
+            label='Options'
+            required
+          >
+            <option>Test</option>
+            <option>Test2</option>
+            <option>Test3</option>
+          </Select>
           <TextArea
             id='Field4'
             label='Message'
