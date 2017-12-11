@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import Checkmark from './Checkmark'
+import Spinner from './Spinner'
 
 import styles from './styles.module.scss'
 
@@ -10,10 +11,6 @@ export default class Submit extends Component {
     children: PropTypes.any,
     formId: PropTypes.any,
     store: PropTypes.object,
-  }
-
-  get spinner() {
-    return <div className={styles.spinner} />
   }
 
   get submitted() {
@@ -40,7 +37,7 @@ export default class Submit extends Component {
           value={children}
         />}
         {this.form && this.form.submitted && this.submitted}
-        {this.form && this.form.fetching && this.spinner}
+        {this.form && this.form.fetching && <Spinner />}
       </div>
     )
   }
