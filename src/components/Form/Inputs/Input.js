@@ -36,10 +36,13 @@ export default class TextInput extends Component {
 
   componentWillReceiveProps(nextProps) {
     const { store, formId } = nextProps
+
     if (store[formId] && store[formId].error && store[formId].error.fields) {
       this.parseErrors(store[formId].error.fields)
-    } else if (!this.state.invalid && this.state.error) {
-      this.setState({ serverError: null })
+    } else if (store[formId] && (this.state.error || this.state.serverError)) {
+      if (store[formId].submitted) {
+        this.setState({ error: null, serverError: null })
+      }
     }
   }
 
@@ -68,7 +71,7 @@ export default class TextInput extends Component {
   isValid = () => {
     const { required } = this.props
     if (required && !this.validator.regEx.test(this.value)) {
-      this.setState({ error: this.validator.error, invalid: true })
+      this.setState({ error: this.validator.error, serverError: null, invalid: true })
       return false
     } else {
       this.setState({ error: null, serverError: null, invalid: false })

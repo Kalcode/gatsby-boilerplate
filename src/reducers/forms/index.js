@@ -43,6 +43,7 @@ class ACTION_HANDLERS {
     const { formId } = action
     if (forms[formId]) {
       forms[formId].fetching = true
+      forms[formId].error = null
     } else {
       console.error('Redux: forms SUBMIT missing formID')
     }
