@@ -55,7 +55,7 @@ export default class TextInput extends Component {
 
   onChange = (event) => {
     const value = event.target.value
-    if (this.state.invalid) this.isValid()
+    if (this.state.invalid) this.isValid(value)
     this.setValue(value)
   }
 
@@ -68,9 +68,9 @@ export default class TextInput extends Component {
     this.props.set(formId, id, value)
   }
 
-  isValid = () => {
+  isValid = (value) => {
     const { required } = this.props
-    if (required && !this.validator.regEx.test(this.value)) {
+    if (required && !this.validator.regEx.test(value || this.value)) {
       this.setState({ error: this.validator.error, serverError: null, invalid: true })
       return false
     } else {
