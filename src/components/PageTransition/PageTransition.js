@@ -1,4 +1,5 @@
 import React, { createElement, Component } from 'react'
+import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 import { Transition } from 'react-transition-group'
 import CurrentTransition, { timeout } from './Fade'
@@ -69,17 +70,14 @@ export default class PageTransition extends Component {
       <Transition {...transitionProps}>
         {
           (status) => {
-            return (
-              <div id='main'>
-                {<CurrentTransition ref={this.refNode} timeout={timeout} />}
-                {
-                  createElement(this.props.pageResources.component, {
-                    ...this.props,
-                    ...this.props.pageResources.json,
-                  })
-                }
-              </div>
-            )
+            return ([
+              createPortal(<CurrentTransition key='page-transition-portal' ref={this.refNode} timeout={timeout} />, document.body),
+              createElement(this.props.pageResources.component, {
+                ...this.props,
+                ...this.props.pageResources.json,
+                key: 'route-content',
+              }),
+            ])
           }
         }
       </Transition>
