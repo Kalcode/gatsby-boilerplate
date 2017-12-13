@@ -1,5 +1,5 @@
 import React from 'react'
-import Form, { Input, TextArea, Select, Submit } from 'components/Form'
+import Form, { Checkboxes, Input, TextArea, Select, Submit } from 'components/Form'
 import ThankYou from 'components/ThankYou'
 
 export default function FormTestPage() {
@@ -43,6 +43,16 @@ export default function FormTestPage() {
               <option>Test2</option>
               <option>Test3</option>
             </Select>
+            <Checkboxes
+              label='Check some boxes'
+              required
+            >
+              {[
+                { id: 'Field8', value: 'First Choice' },
+                { id: 'Field9', value: 'Second Choice' },
+                { id: 'Field10', value: 'Third Choice' },
+              ]}
+            </Checkboxes>
             <TextArea
               id='Field4'
               label='Message'

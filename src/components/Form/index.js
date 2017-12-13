@@ -2,6 +2,7 @@ export Input from './Inputs'
 export TextArea from './TextArea'
 export Select from './Select'
 export Submit from './Submit'
+export Checkboxes from './Checkboxes'
 
 import Form from './Form'
 import { connect } from 'react-redux'
