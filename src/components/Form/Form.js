@@ -82,7 +82,9 @@ export default class Form extends Component {
           acceptCharset='UTF-8'
           action={this.props.action}
           encType='multipart/form-data'
+          id={this.props.id}
           method='post'
+          name={this.props.id}
           noValidate
           onSubmit={this.onSubmit}
           ref={c => { this.form = c }}
