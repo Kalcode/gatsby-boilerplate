@@ -13,9 +13,10 @@ export default class Select extends InputBase {
     validator: 'textArea',
   }
 
-  isValid = () => {
+  isValid = (value) => {
     const { required } = this.props
-    if (required && !this.value) {
+    value = value || this.value
+    if (required && !value) {
       this.setState({ error: 'Select a valid option', invalid: true })
       return false
     } else {
