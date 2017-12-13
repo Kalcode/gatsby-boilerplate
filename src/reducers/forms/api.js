@@ -24,6 +24,7 @@ export default class API {
 
   static parseFields(form) {
     return map(form.fields, (value, name) => {
+      if (Array.isArray(value)) value = value.join(', ')
       return { name, value }
     })
   }

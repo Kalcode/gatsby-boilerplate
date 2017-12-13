@@ -9,9 +9,10 @@ export default function SelectView({ children, error, inputProps, options }) {
         {children}
         <select
           className={styles.input}
+          size={inputProps.multiple && options.length}
           {...inputProps}
         >
-          <option value='' disabled defaultValue>Choose your option</option>
+          {!inputProps.multiple && <option value='' disabled defaultValue>Choose your option</option>}
           {options}
         </select>
       </label>

@@ -32,7 +32,6 @@
   font-family: inherit;
   font-size: 1rem;
   font-weight: 400;
-  height: 2.4rem;
   line-height: 1.5;
   margin: 0 0 1rem;
   padding: 0.5rem;
@@ -53,7 +52,11 @@
   }
 }
 
-select.input {
+input[type='text'].input {
+  height: 2.4rem;
+}
+
+select:not([multiple]).input {
   background-image: linear-gradient(45deg, transparent 50%, $gray 50%),
     linear-gradient(135deg, $gray 50%, transparent 50%),
     linear-gradient(to right, #ccc, #ccc);
@@ -62,6 +65,7 @@ select.input {
     calc(100% - 2.5em) 0.5em;
   background-repeat: no-repeat;
   background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  height: auto;
 
   &:invalid {
     opacity: 0.5;
