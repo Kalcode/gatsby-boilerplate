@@ -2,15 +2,68 @@
   margin: 10px 0;
 }
 
+.label {
+  color: $black;
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.8;
+  margin: 0;
+}
+
 .labelInvalid {
-  color: $red;
+  color: $error;
+  composes: label;
 
   .input {
     border: 1px solid $error;
-    outline-color: $error;
   }
 }
 
 .input {
+  appearance: none;
+  background-color: #fefefe;
+  border: 1px solid #cacaca;
+  border-radius: 0;
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  box-sizing: border-box;
+  color: #0a0a0a;
   display: block;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  height: 2.4rem;
+  line-height: 1.5;
+  margin: 0 0 1rem;
+  padding: 0.5rem;
+  resize: none;
+  transition: box-shadow 0.5s, border-color 0.25s ease-in-out, box-shadow 0.5s;
+  width: 100%;
+
+  &::placeholder {
+    opacity: 0.5;
+  }
+
+  &:focus {
+    background-color: #fefefe;
+    border: 1px solid #8a8a8a;
+    box-shadow: 0 0 5px #cacaca;
+    outline: none;
+    transition: box-shadow 0.5s, border-color 0.25s ease-in-out, box-shadow 0.5s;
+  }
+}
+
+select.input {
+  background-image: linear-gradient(45deg, transparent 50%, $gray 50%),
+    linear-gradient(135deg, $gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position: calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-repeat: no-repeat;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+
+  &:invalid {
+    opacity: 0.5;
+  }
 }

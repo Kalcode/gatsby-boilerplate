@@ -1,1 +1,26 @@
 
+.input {
+  background-color: $grey;
+  border: 1px solid transparent;
+  border-radius: 0;
+  color: $white;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 0.9rem;
+  line-height: 1;
+  margin: 0 0 1rem;
+  outline: 0;
+  padding: 0.85em 1em;
+  text-align: center;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  vertical-align: middle;
+
+  &:hover {
+    background-color: darken($grey, 10);
+  }
+
+  &:focus {
+    background-color: darken($grey, 10);
+  }
+}
