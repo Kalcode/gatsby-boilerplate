@@ -1,14 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from '../Inputs/styles.module.scss'
+import baseStyles from '../Inputs/styles.module.scss'
+import styles from './styles.module.scss'
 
 export default function SelectView({ children, error, inputProps, options }) {
   return (
-    <div className={styles.container}>
-      <label htmlFor={inputProps.id} className={error ? styles.labelInvalid : styles.label}>
+    <div className={baseStyles.container}>
+      <label htmlFor={inputProps.id} className={error ? baseStyles.labelInvalid : baseStyles.label}>
         {children}
         <select
-          className={styles.input}
+          className={[baseStyles.input, styles.select].join(' ')}
           size={inputProps.multiple && options.length}
           {...inputProps}
         >
