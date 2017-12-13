@@ -11,6 +11,7 @@ export default function TextAreaView({ children, error, inputProps }) {
         <AutoTextArea
           className={styles.input}
           minRows={3}
+          type='text'
           {...inputProps}
         />
       </label>

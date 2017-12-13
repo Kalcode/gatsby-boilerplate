@@ -14,9 +14,10 @@ export default class TextArea extends InputBase {
     validator: 'textArea',
   }
 
-  isValid = () => {
+  isValid = (value) => {
     const { min, required } = this.props
-    if (required && this.value.length < this.props.min) {
+    if (!value) value = this.value
+    if (required && value < this.props.min) {
       const error = min === 1 ? 'Cannot be empty' : `Must be at least ${min} characters. Currently Used: ${this.value.length}`
       this.setState({ error: error, invalid: true })
       return false
