@@ -10,7 +10,7 @@ export default function CheckboxesView({ checkboxes, children, error, inputProps
         <legend className={error ? baseStyles.labelInvalid : baseStyles.label}>{children}</legend>
         {checkboxes.map((item) => (
           [
-            <input type='checkbox' id={item.id} name={item.id} checked={!!getValue(item.id)} key={item.id} required={item.required} {...inputProps} />,
+            <input type='checkbox' id={item.id} name={item.id} checked={!!getValue(item.id)} value={item.value} key={item.id} required={item.required} {...inputProps} />,
             <label className={styles.label} htmlFor={item.id} key={item.id + '-label'}>{item.label || item.value}</label>,
           ]
         ))}

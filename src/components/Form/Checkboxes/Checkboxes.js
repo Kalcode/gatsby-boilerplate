@@ -45,14 +45,9 @@ export default class Checkboxes extends InputBase {
   }
 
   onChange = (event) => {
-    let value
     const id = event.target.id
-    if (event.target.checked) {
-      const input = this.props.children.find(item => item.id === id)
-      value = input ? input.value : ''
-    }
-
-    this.setValue(value || '', id)
+    const value = event.target.checked ? event.target.value : ''
+    this.setValue(value, id)
   }
 
   get inputProps() {
