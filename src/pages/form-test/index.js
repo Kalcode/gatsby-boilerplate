@@ -17,12 +17,14 @@ export default function FormTestPage() {
               autocomplete='name'
               placeholder='John Doe'
               required
+              width='50%'
             />
             <Input
               id='Field2'
               label='Phone'
               autocomplete='tel'
               validator='phone'
+              width='50%'
               required
             />
             <Input
@@ -38,6 +40,7 @@ export default function FormTestPage() {
               id='Field6'
               label='Options'
               required
+              width={'50%'}
             >
               <option>Test</option>
               <option>Test2</option>

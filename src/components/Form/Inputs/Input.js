@@ -120,9 +120,10 @@ export default class TextInput extends Component {
   }
 
   render() {
+    const { width } = this.props
     const { error, serverError } = this.state
     return (
-      <View error={error || serverError} inputProps={this.inputProps}>
+      <View error={error || serverError} inputProps={this.inputProps} width={width}>
         {this.label}
         {(error || serverError) && this.errorHTML}
       </View>

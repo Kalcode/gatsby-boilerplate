@@ -1,5 +1,17 @@
+.wrapper {
+  display: inline-block;
+  width: 100%;
+
+  @include breakpoint(500px down) {
+    padding: 0;
+    width: 100% !important; /* stylelint-disable-line */
+  }
+}
+
 .container {
-  margin: 10px 0;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  position: relative;
 }
 
 .label {

@@ -51,10 +51,10 @@ export default class Select extends InputBase {
   }
 
   render() {
-    const { children } = this.props
+    const { children, width } = this.props
     const { error, serverError } = this.state
     return (
-      <View error={error || serverError} inputProps={{...this.inputProps, ...this.selectProps}} options={children}>
+      <View error={error || serverError} inputProps={{...this.inputProps, ...this.selectProps}} options={children} width={width}>
         {this.label}
         {(error || serverError) && this.errorHTML}
       </View>
