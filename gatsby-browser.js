@@ -1,10 +1,21 @@
 /* eslint-disable react/prop-types */
+import 'babel-polyfill'
 import React, { createElement } from 'react'
 import { Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import PageTransition, { getUserConfirmation } from 'components/PageTransition'
 import createStore from './src/store'
 import createHistory from 'history/createBrowserHistory'
+
+exports.onClientEntry = () => {
+  require('gsap')
+  require('whatwg-fetch')
+  require('scrollmagic')
+
+  if (process.env.NODE_ENV === 'development') {
+    require('./node_modules/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators')
+  }
+}
 
 exports.replaceRouterComponent = ({ history }) => {
   let initialState

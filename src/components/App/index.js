@@ -4,14 +4,6 @@ import { BaseHelmet } from 'components/Helmet'
 import Loader from 'components/Loader'
 import ScrollMagicContext from 'components/ScrollMagicContext'
 
-import 'gsap'
-import 'whatwg-fetch'
-import 'scrollmagic'
-
-if (typeof window !== 'undefined') {
-  require('../../../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators')
-}
-
 export default class App extends Component {
   static propTypes = {
     children: PropTypes.any,

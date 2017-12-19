@@ -5,11 +5,12 @@ body {
 }
 
 main {
-  flex: 1;
+  flex: 1 0 auto;
 }
 
 .root > div {
   display: flex;
   flex-direction: column;
+  height: 0;
   min-height: 100vh;
 }
