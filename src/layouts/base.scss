@@ -1,11 +1,92 @@
+@include foundation-global-styles;
+
 body {
   background-color: $background;
   color: $primary;
   font: $body-weight 1rem $body-font;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font;
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 26px;
+
+  @include breakpoint(medium) {
+    font-size: 34px;
+  }
+
+  @include breakpoint(large) {
+    font-size: 38px;
+  }
+
+  @include breakpoint(xlarge) {
+    font-size: 40px;
+  }
+}
+
+h3 {
+  font-size: 22px;
+  margin-top: 1.5em;
+
+  @include breakpoint(medium) {
+    font-size: 24px;
+  }
+
+  @include breakpoint(large) {
+    font-size: 28px;
+  }
+
+  @include breakpoint(xlarge) {
+    font-size: 30px;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: inherit;
+  }
+}
+
+p,
+li {
+  font-size: 1.125rem;
+  line-height: 1.4;
+
+  @include breakpoint(medium) {
+    font-size: 1.15rem;
+  }
+
+  @include breakpoint(large) {
+    font-size: 1.175rem;
+  }
+}
+
+ul {
+  padding: 0;
 }
 
 main {
   flex: 1 0 auto;
+  overflow: hidden;
 }
 
 .root > div {

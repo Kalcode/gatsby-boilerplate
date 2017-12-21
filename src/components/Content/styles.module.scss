@@ -1,0 +1,31 @@
+.container {
+  width: 100%;
+}
+
+.small {
+  composes: container;
+  padding: 10px 0;
+}
+
+.medium {
+  composes: container;
+  padding: 30px 0 20px;
+}
+
+.large {
+  composes: container;
+  padding: 60px 0 20px;
+
+  @include breakpoint(medium) {
+    padding: 80px 0 40px;
+  }
+}
+
+.xlarge {
+  composes: container;
+  padding: 80px 0 20px;
+
+  @include breakpoint(medium) {
+    padding: 120px 0 40px;
+  }
+}

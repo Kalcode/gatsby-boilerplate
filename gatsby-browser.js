@@ -11,7 +11,7 @@ exports.onClientEntry = () => {
   require('gsap')
   require('whatwg-fetch')
   require('scrollmagic')
-
+  require('custom-event-polyfill')
   if (process.env.NODE_ENV === 'development') {
     require('./node_modules/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators')
   }
