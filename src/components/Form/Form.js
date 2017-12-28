@@ -10,6 +10,7 @@ export default class Form extends Component {
   static propTypes = {
     action: PropTypes.any,
     children: PropTypes.any,
+    honeypotted: PropTypes.func,
     id: PropTypes.string,
     register: PropTypes.func,
     store: PropTypes.object,
@@ -43,10 +44,14 @@ export default class Form extends Component {
   }
 
   inputs = []
-  static htmlTags =['input', 'div', 'h1', 'h2', 'h3', 'p']
+  static htmlTags =['input', 'div', 'h1', 'h2', 'h3', 'p', 'ul']
 
   onSubmit = (event) => {
     event.preventDefault()
+    if (this.honeypot.value) {
+      this.props.honeypotted(this.props.id)
+      return false
+    }
     let valid = true
     this.inputs.forEach(input => {
       if (!input.isValid()) valid = false
@@ -90,6 +95,12 @@ export default class Form extends Component {
           ref={c => { this.form = c }}
         >
           {this.children}
+          <input
+            ref={c => { this.honeypot = c }}
+            size='25'
+            style={{ display: 'none' }}
+            type='text'
+          />
         </form>}
         {exited && submittedElement && <Submitted>{submittedElement}</Submitted>}
       </div>

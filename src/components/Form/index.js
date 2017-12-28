@@ -19,6 +19,7 @@ function mapDispatchToProps(dispatch) {
   return {
     register: (id) => { dispatch(Actions.register(id)) },
     submit: (formId, data) => { dispatch(Actions.submit(formId, data)) },
+    honeypotted: (formId) => { dispatch(Actions.honeypotted(formId)) },
   }
 }
 

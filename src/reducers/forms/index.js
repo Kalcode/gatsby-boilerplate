@@ -1,6 +1,8 @@
 import { createReducer, createTypes } from 'reduxsauce'
+import analytics from 'analytics'
 
 export const Types = createTypes(`
+    HONEYPOTTED
     INIT
     REGISTER
     SET
@@ -12,6 +14,7 @@ export const register = (id) => ({ type: Types.REGISTER, id })
 export const submit = (formId, data) => ({ type: Types.SUBMIT, formId, data })
 export const submitted = (formId, data) => ({ type: Types.SUBMITTED, formId, data })
 export const set = (formId, id, value) => ({ type: Types.SET, formId, id, value })
+export const honeypotted = (formId) => ({ type: Types.HONEYPOTTED, formId })
 
 const INITIAL_STATE = {}
 
@@ -57,6 +60,7 @@ class ACTION_HANDLERS {
     if (form) {
       form.fetching = false
       if (data.Success) {
+        analytics.event('contact', 'submitted')
         form.submitted = true
         form.valid = true
         form.error = null
@@ -69,6 +73,21 @@ class ACTION_HANDLERS {
           ErrorText: data.ErrorText,
         }
       }
+    } else {
+      console.error('Redux (forms): Unknown formId')
+    }
+    return { ...state, ...forms }
+  }
+
+  static [Types.HONEYPOTTED](state, action) {
+    let forms = { ...state }
+    const { formId } = action
+    const form = forms[formId]
+    if (form) {
+      form.fetching = false
+      form.submitted = true
+      form.valid = true
+      form.error = null
     } else {
       console.error('Redux (forms): Unknown formId')
     }
