@@ -19,9 +19,18 @@ deploy:
 		--cache-control='max-age=60, must-revalidate'
 	@aws s3 sync public $(bucket-dev) \
 		--acl=public-read \
-		--exclude "*.html" \
+		--exclude "*" \
+		--include "*.js" \
+		--include "*.js.map" \
 		--delete \
-		--cache-control='max-age=525600'
+		--cache-control='max-age=no-cache, must-revalidate'
+	@aws s3 sync public $(bucket-dev) \
+		--acl=public-read \
+		--exclude "*.html" \
+		--exclude "*.js" \
+		--exclude "*.js.map" \
+		--delete \
+		--cache-control='max-age=2592000'
 
 live:
 	@aws s3 sync $(bucket-dev) $(bucket-live) \
@@ -32,8 +41,17 @@ live:
 		--cache-control='max-age=60, must-revalidate'
 	@aws s3 sync $(bucket-dev) $(bucket-live) \
 		--acl=public-read \
-		--exclude "*.html" \
+		--exclude "*" \
+		--include "*.js" \
+		--include "*.js.map" \
 		--delete \
-		--cache-control='max-age=525600'
+		--cache-control='max-age=no-cache, must-revalidate'
+	@aws s3 sync $(bucket-dev) $(bucket-live) \
+		--acl=public-read \
+		--exclude "*.html" \
+		--exclude "*.js" \
+		--exclude "*.js.map" \
+		--delete \
+		--cache-control='max-age=2592000'
 
 .PHONY: develop deploy build live serve
