@@ -20,7 +20,13 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
   return config
 }
 
-exports.modifyBabelrc = ({ babelrc }) => ({
-  ...babelrc,
-  plugins: babelrc.plugins.concat(['transform-decorators-legacy', 'transform-regenerator']),
-})
+exports.modifyBabelrc = ({ babelrc }) => (
+  Object.assign(
+    babelrc,
+    {
+      plugins: babelrc.plugins.concat(
+        ['transform-decorators-legacy', 'transform-regenerator']
+      ),
+    }
+  )
+)
