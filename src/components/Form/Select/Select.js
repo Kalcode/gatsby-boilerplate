@@ -14,7 +14,7 @@ export default class Select extends InputBase {
   }
 
   componentDidMount() {
-    this.setValue(this.value || this.props.defaultValue || this.props.multiple ? [] : '')
+    this.setValue(this.value || this.props.defaultValue || (this.props.multiple ? [] : ''))
   }
 
   isValid = (value) => {
