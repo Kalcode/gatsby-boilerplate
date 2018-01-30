@@ -14,6 +14,7 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     'gatsby-plugin-resolve-src',
+    'gatsby-plugin-sharp',
     {
       resolve: `gatsby-plugin-postcss-sass`,
       options: {
@@ -26,18 +27,26 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-google-analytics-custom`,
-      options: {
-        trackingId: 'UA-TODO-XX',
-      },
-    },
-    {
       resolve: `gatsby-plugin-nprogress`,
       options: {
         // Setting a color is optional.
         color: `tomato`,
         // Disable the loading spinner.
         showSpinner: true,
+      },
+    },
+    {
+      resolve: `gatsby-google-analytics-custom`,
+      options: {
+        trackingId: 'UA-TODO-XX',
+      },
+    },
+    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
     },
   ],
