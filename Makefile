@@ -8,7 +8,7 @@ build:
 	@npm run build
 
 serve:
-	@http-server ./public -p 8000
+	@npm run serve
 
 deploy:
 	@aws s3 sync public $(bucket-dev) \
