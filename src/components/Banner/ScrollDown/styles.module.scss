@@ -1,0 +1,49 @@
+.wrapper {
+  left: 0;
+  min-height: 100vh;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.scrolldown {
+  animation-direction: normal;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-name: pulse;
+  animation-timing-function: ease-in-out;
+  bottom: 0;
+  color: $white;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.scrollText {
+  font-family: $heading-font;
+  margin: 0;
+}
+
+.svg {
+  fill: none;
+  height: 48px;
+  stroke: $white;
+  stroke-width: 2;
+  width: 48px;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
