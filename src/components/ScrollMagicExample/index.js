@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Scene } from 'scrollmagic'
 import styles from './styles.module.scss'
 
-export default class ExampleComp extends PureComponent {
+export default class ScrollMagicExample extends PureComponent {
   static contextTypes = {
     scrollmagic: PropTypes.any,
   }
@@ -20,11 +20,11 @@ export default class ExampleComp extends PureComponent {
     console.log(styles['nav-menu-break'])
 
     this.animation = new TimelineMax({ paused: true })
-    .fromTo(this.node, 5, { opacity: 0 }, { opacity: 1 })
+      .fromTo(this.node, 5, { opacity: 0 }, { opacity: 1 })
     this.animation.play()
 
     this.scrollAnim = new TimelineMax({ paused: true })
-    .fromTo(this.title, 5, { opacity: 0, y: 50 }, { opacity: 1, y: 0 })
+      .fromTo(this.title, 5, { opacity: 0, y: 50 }, { opacity: 1, y: 0 })
 
     this.scene = new Scene({ triggerElement: this.title, triggerHook: 0.4 })
     this.scene.indicatorName = 'Test'
