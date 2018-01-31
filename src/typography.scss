@@ -1,0 +1,96 @@
+/* Global */
+// $global-weight-normal: normal;
+// $global-weight-bold: bold;
+// $global-font-size: 100%;
+// $global-width: rem-calc(1200);
+$global-lineheight: 1.5;
+$global-font-size: rem-calc(21px);
+
+/* Abbreviations <abbr> */
+// $abbr-underline: 1px dotted $black;
+
+/* Anchor */
+// $anchor-color: $primary-color;
+// $anchor-text-decoration: none;
+// $anchor-text-decoration-hover: none;
+$anchor-color: $linkColor;
+$anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
+$anchor-text-decoration: underline;
+
+/* Blockquotes <blockquote> */
+// $blockquote-color: $dark-gray;
+// $blockquote-padding: rem-calc(9 20 0 19);
+// $blockquote-border: 1px solid $medium-gray;
+$blockquote-border: 1px solid $linkColor;
+
+/* Body */
+// $body-font-color: $black;
+$body-font-family: 'Crimson Text', 'serif';
+
+/* Cite <cite> */
+// $cite-font-size: rem-calc(13);
+// $cite-color: $dark-gray;
+// $cite-pseudo-content: '\2014 \0020';
+
+/* Code <code> */
+// $code-color: $black;
+// $code-font-family: $font-family-monospace;
+// $code-font-weight: $global-weight-normal;
+// $code-background: $light-gray;
+// $code-border: 1px solid $medium-gray;
+// $code-padding: rem-calc(2 5 1);
+
+/* Header */
+// $header-font-weight: $global-weight-normal;
+// $header-font-style: normal;
+// $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
+// $header-color: inherit;
+// $header-lineheight: 1.4;
+// $header-margin-bottom: 0.5rem;
+$header-font-family: 'Rosario', 'sans-serif';
+$header-color: hsla(0, 0%, 0%, 0.9);
+$header-font-weight: 700;
+
+// $header-styles: (
+//   'small': (
+//     'h1': ('font-size': 22, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//     'h2': ('font-size': 20, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//     'h3': ('font-size': 19, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//     'h4': ('font-size': 18, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//     'h5': ('font-size': 17, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//     'h6': ('font-size': 16, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom)
+//   ),
+//   'medium': (
+//     'h1': ('font-size': 48, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//     'h2': ('font-size': 20, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//     'h3': ('font-size': 31, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//     'h4': ('font-size': 25, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//     'h5': ('font-size': 20, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//     'h6': ('font-size': 16, 'line-height': $header-lineheight, 'margin-top': 0, 'margin-bottom': $header-margin-bottom),
+//   ),
+// );
+
+/* HR <hr> */
+// $hr-width: $global-width;
+// $hr-border: 1px solid $medium-gray;
+// $hr-margin: rem-calc(20) auto;
+
+/* Keystroke <kbd> */
+// $keystroke-font: $font-family-monospace;
+// $keystroke-color: $black;
+// $keystroke-background: $light-gray;
+// $keystroke-padding: rem-calc(2 4 0);
+// $keystroke-radius: $global-radius;
+
+/* List */
+// $list-lineheight: $paragraph-lineheight;
+// $list-margin-bottom: $paragraph-margin-bottom;
+// $list-style-type: disc;
+// $list-style-position: outside;
+// $list-side-margin: 1.25rem;
+// $list-nested-side-margin: 1.25rem;
+
+/* Paragraph */
+$paragraph-lineheight: 1.5;
+// $paragraph-margin-bottom: 1rem;
+// $paragraph-text-rendering: optimizeLegibility;

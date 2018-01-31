@@ -1,7 +1,19 @@
-// Grid settings
+/* Global */
+// $global-margin: 1rem;
+// $global-padding: 1rem;
+// $global-position: 1rem;
+// $global-radius: 0;
+// $global-menu-padding: 0.7rem 1rem;
+// $global-menu-nested-margin: 1rem;
+// $global-text-direction: ltr;
+// $global-flexbox: true;
+// $global-prototype-breakpoints: false;
+// $global-button-cursor: auto;
+
+/* Grid settings */
 $global-flexbox: true;
 
-$global-width: 1200px;
+$global-width: 35em;
 $grid-row-width: $global-width;
 
 $gutter: 20px;
