@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'components/Helmet'
 import Banner from 'components/Banner'
+import Content, { Col } from 'components/Content'
 import Link from 'components/Link'
 
 export default function Home({ data }) {
@@ -16,14 +17,34 @@ export default function Home({ data }) {
         <h2>Gatsby Boilerplate</h2>
         <p>The Kitchen Sink</p>
       </Banner>
-      <div className='row'>
-        <div className='small-12 olumns'>
+      <Content>
+        <Col>
           <h1>Home Page</h1>
           <p>Welcome to the test homepage</p>
+          <p>
+            This is a paragraph. Paragraphs are preset with a font size, line height and spacing to match the overall vertical rhythm. To show what a paragraph looks like this needs a little more content so, did you know that there are storms occurring on Jupiter that are larger than the Earth? Pretty cool. Wrap strong around type to <strong>make it bold!</strong>. You can also use em to <em>italicize your words</em>.
+          </p>
+          <code>
+            This is code block
+          </code>
           <p>Simple no?</p>
-          <Link to='/about'>About</Link><br />
-        </div>
-      </div>
+          <blockquote>
+            This is a blockquote
+          </blockquote>
+          <cite>
+            This is a citation
+          </cite>
+          <kbd>
+            What is a keystoke?
+          </kbd>
+          <br />
+          <abbr title='Abbreviations'>
+            This is abbr
+          </abbr>
+          <br />
+          <Link to='/about'>About Page</Link><br />
+        </Col>
+      </Content>
     </main>
   )
 }
