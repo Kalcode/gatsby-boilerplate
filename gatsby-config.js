@@ -10,10 +10,10 @@ module.exports = {
   plugins: [
     // Turn on offline before deploy
     // `gatsby-plugin-offline`,
-    `gatsby-plugin-react-next`,
-    `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-react-next`,
     'gatsby-plugin-resolve-src',
+    `gatsby-plugin-sitemap`,
     'gatsby-plugin-sharp',
     {
       resolve: `gatsby-plugin-postcss-sass`,
