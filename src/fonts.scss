@@ -1,6 +1,46 @@
-// @font-face {
-//   font-family: 'Heebo';
-//   font-weight: 900;
-//   src: url('/fonts/heebo-black-webfont.woff2') format('woff2'),
-//     url('/fonts/heebo-black-webfont.woff') format('woff');
-// }
+/* Heading */
+@font-face {
+  font-family: 'Rosario';
+  font-weight: 400;
+  src: url('/fonts/rosario-regular-webfont.woff2') format('woff2'),
+    url('/fonts/rosario-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Rosario';
+  font-weight: 700;
+  src: url('/fonts/rosario-bold-webfont.woff2') format('woff2'),
+    url('/fonts/rosario-bold-webfont.woff') format('woff');
+}
+
+/* Body */
+
+@font-face {
+  font-family: 'Crimson Text';
+  font-weight: 400;
+  src: url('/fonts/crimsontext-regular-webfont.woff2') format('woff2'),
+    url('/fonts/crimsontext-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  font-style: italic;
+  font-weight: 400;
+  src: url('/fonts/crimsontext-italic-webfont.woff2') format('woff2'),
+    url('/fonts/crimsontext-italic-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  font-weight: 700;
+  src: url('/fonts/crimsontext-bold-webfont.woff2') format('woff2'),
+    url('/fonts/crimsontext-bold-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  font-style: italic;
+  font-weight: 700;
+  src: url('/fonts/crimsontext-bolditalic-webfont.woff2') format('woff2'),
+    url('/fonts/crimsontext-bolditalic-webfont.woff') format('woff');
+}
