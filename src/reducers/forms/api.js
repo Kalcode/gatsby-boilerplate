@@ -35,10 +35,10 @@ export default class API {
   }
 
   static get token() {
-    return process.env.API_TOKEN
+    return process.env.GATSBY_API_TOKEN
   }
 
   static get url() {
-    return process.env.API_URL
+    return process.env.GATSBY_API_URL
   }
 }
