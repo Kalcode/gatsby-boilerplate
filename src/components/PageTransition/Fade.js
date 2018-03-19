@@ -11,12 +11,16 @@ export default class Fade extends PureComponent {
   }
 
   // Required
-  onEntering = () => {
+  onEntering = (node, isAppearing) => {
+    console.log(isAppearing)
+    if (isAppearing) return
     TweenMax.set(this.node, { opacity: 1, display: 'block' })
   }
 
   // Required
-  onEntered = () => {
+  onEntered = (node, isAppearing) => {
+    console.log(isAppearing)
+    if (isAppearing) return
     TweenMax.to(this.node, this.props.timeout / 1000, { opacity: 0, display: 'none' })
   }
 
