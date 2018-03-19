@@ -38,7 +38,7 @@ module.exports = {
     {
       resolve: `gatsby-google-analytics-custom`,
       options: {
-        trackingId: 'UA-TODO-XX',
+        trackingId: config.googleAnalytics,
       },
     },
     `gatsby-transformer-sharp`,
