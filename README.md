@@ -1,21 +1,21 @@
 # gatsby-boilerplate aka The Kitchen Sink
-This is just a boilerplate for static websites.  
-It basically a kitchen sink of stuff I typically use in every project.
 
-Uses [GatsbyJS](https://www.gatsbyjs.org/) at its foundation.  
-React, Redux, SCSS, Post-CSS, GSAP, ScrollMagic, Foundation, Modernizr, sitemap-gen, favicon-gen, google-analytics probably more.
+This is just a boilerplate for static websites using React.
 
-Also linters, ESlint and Styline rules along with pre-commit hooks. 
+It basically a kitchen sink that is customiozed/tailored for stuff I typically use in every project.
 
-Tested as far back as IE10 with the polyfills I use. 
+Uses [GatsbyJS](https://www.gatsbyjs.org/) at its foundation.
 
-Has a nav already hooked up to redux. Also has React headroom so you nav auto hides.
+React, Redux, SCSS, Post-CSS, GSAP, ScrollMagic, Foundation, Modernizr, sitemap-gen, favicon-gen, google-analytics probably more are hooked up.
 
-A form that uses fetch but you can pass an action prop and do a normal POST on submit. The form has validators for it and is currently hooked to to work with a custom micro-server that talks to wufoo. Should be very simple to swap out the reducers and the API calls with whatever service you'd like to use.
+Also linters, ESlint and Styline rules along with pre-commit hooks.
 
-Has page transitions to. It's a component that really easy to customize. Only caveat is page transitions causes a flicker, so I have a 'loading' screen before React loads in. Takes away one from the awesome things about a static generated React app which is a first paint time. But I really like page transitions and I still loads pretty fast.
+Tested as far back as IE10 with the polyfills I use.
 
-There is an example component for scrollmagic with comments.
+Has a nav already hooked up to redux and React headroom so the nav auto hides.
 
+A form that uses fetch but you can pass an action prop and do a normal POST on submit. The form has validators for it and is currently hooked to work with a custom micro-server that talks to wufoo. Pretty simple to swap out the reducers and the API calls with whatever service you'd like to use.
 
+Has page transitions too that can be customized.
 
+There is an example component for scrollmagic with comments that used context to interact with scrollmagic's controller.
