@@ -14,11 +14,9 @@ export default class App extends Component {
     const { children, location } = this.props
     return (
       <ScrollMagicContext location={location}>
-        <div>
-          <Loader />
-          <BaseHelmet location={location} />
-          {children}
-        </div>
+        <Loader />
+        <BaseHelmet location={location} />
+        {children}
       </ScrollMagicContext>
     )
   }
