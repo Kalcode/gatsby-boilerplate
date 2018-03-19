@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { BaseHelmet } from 'components/Helmet'
-import Loader from 'components/Loader'
 import ScrollMagicContext from 'components/ScrollMagicContext'
 
 export default class App extends Component {
@@ -14,7 +13,6 @@ export default class App extends Component {
     const { children, location } = this.props
     return (
       <ScrollMagicContext location={location}>
-        <Loader />
         <BaseHelmet location={location} />
         {children}
       </ScrollMagicContext>
