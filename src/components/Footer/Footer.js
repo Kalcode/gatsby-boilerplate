@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './styles.module.scss'
 
-import content from 'content/footer.json'
+import content from './footer.json'
 
 export default function Footer() {
   return (

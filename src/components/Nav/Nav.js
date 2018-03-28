@@ -6,7 +6,7 @@ import Menu from './Menu'
 
 import styles from './styles.module.scss'
 
-import content from 'content/nav.json'
+import content from './nav.json'
 
 export default class Nav extends Component {
   static propTypes = {
