@@ -2,8 +2,6 @@ import Logger from 'utils/logger'
 
 export default class API {
   static fetchData(ref, page) {
-    console.log(page, 'page')
-
     API.debug(' Getting Data')
     return fetch(API.url + API.endpoint + `?page=${page || 1}&ref=${ref}` + API.parameters, {
       method: 'get',
@@ -19,7 +17,9 @@ export default class API {
       method: 'get',
 
     })
-      .then(response => response.json())
+      .then(response => {
+        return response.json()
+      })
       .then(json => {
         const ref = json.refs && json.refs.find(item => item.id === 'master')
         return ref && ref.ref
@@ -47,6 +47,7 @@ export default class API {
   }
 
   static get url() {
+    // return 'http://adnormlteest.prismic.io/api/v2'
     return process.env.GATSBY_PRISMIC_URL
   }
 }

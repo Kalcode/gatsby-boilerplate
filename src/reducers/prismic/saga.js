@@ -9,13 +9,10 @@ function * fetchData(action) {
 
   try {
     const data = yield call(API.fetchData, ref, action.page)
-    yield put(Actions.fetched(ref, data, null))
+    yield put(Actions.fetched(data, null))
   } catch (error) {
     Logger.error(error)
-    yield put(Actions.fetched(ref, null, {
-      msg: error.message,
-      name: error.name,
-    }))
+    yield put(Actions.fetched(null, { message: error.message, stack: error.stack }))
   }
 }
 
@@ -28,7 +25,7 @@ function * fetchRef(action) {
     yield put(Actions.fetchedRef(ref, null))
   } catch (error) {
     Logger.error(error)
-    yield put(Actions.fetchedRef(null, 'No Ref'))
+    yield put(Actions.fetchedRef(null, { message: error.message, stack: error.stack }))
   }
 }
 

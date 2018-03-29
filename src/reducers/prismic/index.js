@@ -11,16 +11,16 @@ export const Types = createTypes(`
 export const fetch = (page) => ({ type: Types.FETCH, page })
 export const fetchRef = (ref) => ({ type: Types.FETCHREF, ref })
 export const fetchedRef = (ref, error) => ({ type: Types.FETCHEDREF, ref, error })
-export const fetched = (ref, data, error) => ({ type: Types.FETCHED, ref, data, error })
+export const fetched = (data, error) => ({ type: Types.FETCHED, data, error })
 
 const INITIAL_STATE = {
   data: null,
   error: null,
   fetching: false,
-  page: null,
-  total_pages: null,
   next_page: null,
+  page: null,
   ref: null,
+  total_pages: null,
 }
 
 class ACTION_HANDLERS {
@@ -37,24 +37,21 @@ class ACTION_HANDLERS {
   }
 
   static [Types.FETCHEDREF](state, action) {
-    console.log(action)
-
     const error = action.error
     const fetching = false
-    const ref = action.ref
+    const ref = action.ref || null
     return { ...state, error, fetching, ref }
   }
 
   static [Types.FETCHED](state, action) {
     const fetching = false
-    if (action.data) {
+    if (action.data && !action.data.error) {
       let data = state.data && state.data.slice()
       data = data ? data.concat(action.data.results) : action.data.results
-      const ref = action.ref
       const { page, total_pages, next_page } = action.data
-      return { ...state, data, ref, fetching, page, total_pages, next_page }
+      return { ...state, data, fetching, page, total_pages, next_page }
     } else {
-      const error = action.error
+      const error = action.error || (action.data && { message: action.data.error })
       return { ...state, fetching, error }
     }
   }
