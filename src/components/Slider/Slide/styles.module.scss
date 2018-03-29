@@ -1,0 +1,59 @@
+/* stylelint-disable color-named */
+.wrapper {
+  @include mask();
+
+  button {
+    background-color: $black;
+    color: $white;
+    margin: 10px;
+    padding: 10px 20px;
+  }
+}
+
+.container {
+  @include mask();
+  align-items: center;
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+}
+
+.red {
+  background-color: red;
+}
+
+.purple {
+  background-color: purple;
+}
+
+.green {
+  background-color: green;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.teal {
+  background-color: teal;
+}
+
+.white {
+  background-color: white;
+}
+
+.peekPrev {
+  height: 40px + $nav-height;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.peekNext {
+  bottom: 0;
+  height: 40px;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
