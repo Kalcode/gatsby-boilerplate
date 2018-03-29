@@ -1,7 +1,6 @@
 import React, { cloneElement, Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.module.scss'
-import cn from 'classnames'
 
 export default class Slide extends Component {
   static propTypes = {
@@ -11,6 +10,7 @@ export default class Slide extends Component {
     index: PropTypes.number,
     position: PropTypes.string,
     set: PropTypes.func,
+    timeout: PropTypes.number,
   }
 
   static transitions = {
@@ -31,27 +31,29 @@ export default class Slide extends Component {
   }
 
   onEntering = (direction) => {
-    // this.unPeek()
+    this.unPeek()
+    const { timeout } = this.props
     direction = direction || this.getDirection()
     console.log('entering', this.props.index, direction)
-    if (this.childRef && this.childRef.onEntering) this.childRef.onEntering(direction)
     if (direction === 'next') {
-      TweenMax.fromTo(this.node, 0.5, { y: '-100%' }, { y: '0%' })
+      TweenMax.fromTo(this.node, timeout, { y: '-100%' }, { y: '0%' })
     } else {
       TweenMax.set(this.node, { y: '0' })
     }
+    if (this.childRef && this.childRef.onEntering) this.childRef.onEntering(direction, timeout)
   }
 
   onLeaving = () => {
-    // this.unPeek()
+    this.unPeek()
+    const { timeout } = this.props
     const direction = this.getDirection()
     console.log('exiting', this.props.index, direction)
-    if (this.childRef && this.childRef.onLeaving) this.childRef.onLeaving(direction)
     if (direction === 'next') {
       TweenMax.set(this.node, { y: '0' })
     } else {
-      TweenMax.fromTo(this.node, 0.5, { y: '0%' }, { y: '-100%' })
+      TweenMax.fromTo(this.node, timeout, { y: '0%' }, { y: '-100%' })
     }
+    if (this.childRef && this.childRef.onLeaving) this.childRef.onLeaving(direction, timeout)
   }
 
   getDirection() {
@@ -59,7 +61,10 @@ export default class Slide extends Component {
   }
 
   get children() {
-    return cloneElement(this.props.children, { ref: (c) => { this.childRef = c } })
+    return cloneElement(this.props.children, {
+      ref: (c) => { this.childRef = c },
+      set: this.props.set,
+    })
   }
 
   peekPrev = () => {
@@ -80,7 +85,7 @@ export default class Slide extends Component {
   }
 
   render() {
-    const { color, current, index, position, set } = this.props
+    const { current, index, position } = this.props
     const style = {
       pointerEvents: current === index ? 'auto' : 'none',
       transform: `translateY(${Slide.transitions[position]})`,
@@ -88,19 +93,8 @@ export default class Slide extends Component {
     }
     return (
       <div className={styles.wrapper} style={style} ref={c => { this.node = c }}>
-        <div className={cn(styles.container, styles[color])} ref={c => { this.container = c }}>
-          <div>
-            {this.children}
-            <div>
-              <button onClick={() => { set('prev') }}>prev</button>
-              <button onClick={() => { set('next') }}>next</button>
-            </div>
-            <div>
-              <button onClick={this.peekPrev}>peek prev</button>
-              <button onClick={this.peekNext}>peek next</button>
-              <button onClick={this.unPeek}>unpeek</button>
-            </div>
-          </div>
+        <div className={styles.container} ref={c => { this.container = c }}>
+          {this.children}
         </div>
         <div className={styles.peekPrev} onMouseEnter={this.peekNext} onMouseLeave={this.unPeek} />
         <div className={styles.peekNext} onMouseEnter={this.peekPrev} onMouseLeave={this.unPeek} />

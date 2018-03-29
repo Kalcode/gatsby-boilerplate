@@ -1,4 +1,3 @@
-/* stylelint-disable color-named */
 .wrapper {
   @include mask();
 
@@ -13,33 +12,8 @@
 .container {
   @include mask();
   align-items: center;
-  background-color: blue;
   display: flex;
   justify-content: center;
-}
-
-.red {
-  background-color: red;
-}
-
-.purple {
-  background-color: purple;
-}
-
-.green {
-  background-color: green;
-}
-
-.orange {
-  background-color: orange;
-}
-
-.teal {
-  background-color: teal;
-}
-
-.white {
-  background-color: white;
 }
 
 .peekPrev {
