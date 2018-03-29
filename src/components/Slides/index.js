@@ -1,0 +1,1 @@
+export HomeSlide from './HomeSlide'
