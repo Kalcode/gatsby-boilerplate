@@ -45,7 +45,7 @@ export default class Slider extends Component {
   getChild(position) {
     const { children } = this.props
     const { current, direction } = this.state
-    const timeout = Slider.timeout
+    const timeout = Slider.timeout / 1000
     const index = this[position]
     return cloneElement(children[index], { current, direction, index, key: index, position, set: this.setSlide, timeout })
   }
