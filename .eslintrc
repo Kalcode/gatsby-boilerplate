@@ -2,16 +2,15 @@
   "parser": "babel-eslint",
   "extends": ["plugin:react/recommended", "standard", "standard-react"],
   "rules": {
-    "react/no-unescaped-entities": off,
+    "react/no-unescaped-entities": "off",
     "react/jsx-closing-bracket-location": [2],
     "react/jsx-closing-tag-location": [2],
-    "react/display-name": [<enabled>, { "ignoreTranspilerName": true }],
     "import/no-webpack-loader-syntax": [0],
     "standard/no-callback-literal": [0],
     "space-before-function-paren": [2, "never"],
     "comma-dangle": [2, "always-multiline"],
     "camelcase": [0],
-    "react/prop-types": [ 2,  { "ignore": [ "data", "color"] }]
+    "react/prop-types": [ 2,  { "ignore": [ "data" ] }]
   },
   "globals": {
     "document": false,
