@@ -1,4 +1,8 @@
-# gatsby-boilerplate aka The Kitchen Sink
+# NO LONGER MAINTAINED
+
+This repo uses a very old outdated Gatsby version. For the latest checkout: https://www.gatsbyjs.com/
+
+## gatsby-boilerplate aka The Kitchen Sink
 
 This is just a boilerplate for static websites using React.
 
